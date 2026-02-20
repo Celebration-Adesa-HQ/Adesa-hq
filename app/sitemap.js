@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://adesahq.com";
+  const baseUrl = "https://www.adesahq.com";
 
   return [
     {
