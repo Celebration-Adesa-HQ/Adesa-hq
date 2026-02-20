@@ -10,5 +10,12 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <Maintenance />;
+  return (
+    <main role="main">
+      <h1 className="sr-only">
+        Adesa HQ is currently undergoing scheduled maintenance. We will be back shortly.
+      </h1>
+      <Maintenance />
+    </main>
+  );
 }
