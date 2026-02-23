@@ -1,81 +1,48 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { constructMetadata } from "@/lib/seo";
+import { Header } from "@/components/layout/heading";
+import { Footer } from "@/components/layout/footer";
 import AppShell from "./AppShell";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata = {
-  metadataBase: new URL("https://adesahq.com"),
 
-  title: {
-    default: "Adesa HQ | Digital Product & Media Company",
-    template: "%s | Adesa HQ",
-  },
-
-  description:
-    "Adesa HQ builds digital products, media platforms, and scalable web solutions for modern businesses.",
-
-  keywords: [
-    "Adesa HQ",
-    "Digital Product Company",
-    "Web Development Agency",
-    "Media Platform Development",
-    "Startup Technology Company",
-  ],
-
-  authors: [{ name: "Adesa HQ" }],
-  creator: "Adesa HQ",
-  publisher: "Adesa HQ",
-
-  openGraph: {
-    title: "Adesa HQ | Digital Product & Media Company",
-    description:
-      "We build scalable digital products and media platforms for startups and growing brands.",
-    url: "https://adesahq.com",
-    siteName: "Adesa HQ",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Adesa HQ",
-    description:
-      "Digital product development and media innovation for modern brands.",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-};
+export const metadata = constructMetadata();
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+                  "min-h-screen bg-neutral-50 font-sans antialiased",
+        "dark:bg-adesa-900 dark:text-neutral-50",
+          inter.variable,
+          playfair.variable,
+        )}
+        
       >
-        <AppShell>{children}</AppShell>
+        <AppShell>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main role="main" className="flex-1">{children}</main>
+
+            <Footer />
+          </div>
+        </AppShell>
       </body>
     </html>
   );
