@@ -37,5 +37,5 @@ export default async function sitemap() {
   //   }),
   // );
 
-  return [...staticPages, ...dynamicPages];
+  return [...staticPages];
 }
