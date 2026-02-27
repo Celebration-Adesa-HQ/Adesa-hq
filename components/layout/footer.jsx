@@ -1,5 +1,17 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Phone, Mail, Globe } from "lucide-react";
+import {
+  ArrowUpRight,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 const footerNavigation = {
   company: [
@@ -123,7 +135,7 @@ export function Footer() {
                   </ul>
                 </div>
 
-                {/* Added Career Opportunities Section */}
+                {/* Career Opportunities Section */}
                 <div>
                   <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400">
                     Career Opportunities
@@ -149,7 +161,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Added Contact Information Section */}
+        {/* Contact Information Section */}
         <div className="relative border-t border-adesa-800/70 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
@@ -184,6 +196,50 @@ export function Footer() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        {/* Social Media Section */}
+        <div className="relative border-t border-adesa-800/70 py-8">
+          <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400 text-center mb-6">
+            Follow Us
+          </h2>
+          <div className="flex justify-center gap-6">
+            <Link
+              href="https://www.facebook.com/profile.php?id=61551745417738&mibextid=LQQJ4d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400"
+            >
+              <Facebook className="w-6 h-6" />
+            </Link>
+
+            <Link
+              href="https://x.com/adesagroup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400"
+            >
+              <Twitter className="w-6 h-6" />
+            </Link>
+
+            <Link
+              href="https://www.instagram.com/adesahq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400"
+            >
+              <Instagram className="w-6 h-6" />
+            </Link>
+
+            <Link
+              href="https://www.linkedin.com/company/adesa-hq/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400"
+            >
+              <Linkedin className="w-6 h-6" />
+            </Link>
           </div>
         </div>
 

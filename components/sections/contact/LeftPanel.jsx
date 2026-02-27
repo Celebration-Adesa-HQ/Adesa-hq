@@ -1,6 +1,13 @@
 "use client";
 
-import { Mail, MapPin } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function LeftPanel() {
@@ -48,42 +55,20 @@ export default function LeftPanel() {
           className="space-y-8 sm:space-y-10"
         >
           {/* Email */}
-          <div className="group flex items-start gap-4 sm:gap-6">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-adesa-800 border border-adesa-600 flex items-center justify-center rounded-lg transition-all group-hover:border-gold-400">
-              <Mail className="text-gold-400 w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <h3 className="text-adesa-50 text-sm sm:text-base font-medium mb-1">
-                Email
-              </h3>
-              <address className="text-adesa-300 not-italic text-sm sm:text-base break-all">
-                <a
-                  href="mailto:info@adesahq.com"
-                  className="hover:text-gold-400 transition-colors duration-300"
-                >
-                  info@adesahq.com
-                </a>
-              </address>
-            </div>
-          </div>
+          <ContactInfoCard
+            Icon={Mail}
+            label="Email"
+            value="info@adesahq.com"
+            href="mailto:info@adesahq.com"
+          />
 
           {/* Location */}
-          <div className="group flex items-start gap-4 sm:gap-6">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-adesa-800 border border-adesa-600 flex items-center justify-center rounded-lg transition-all group-hover:border-gold-400">
-              <MapPin className="text-gold-400 w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <h3 className="text-adesa-50 text-sm sm:text-base font-medium mb-1">
-                Location
-              </h3>
-              <address className="text-adesa-300 not-italic text-sm sm:text-base">
-                2 Isheri Road, Ojudu-Berger, Lagos
-                <p className="text-adesa-400 text-xs sm:text-sm mt-1">
-                  Operating across Africa
-                </p>
-              </address>
-            </div>
-          </div>
+          <ContactInfoCard
+            Icon={MapPin}
+            label="Location"
+            value="2 Isheri Road, Ojudu-Berger, Lagos"
+            extraInfo="Operating across Africa"
+          />
         </motion.div>
 
         {/* Inquiry Card */}
@@ -115,7 +100,94 @@ export default function LeftPanel() {
             ))}
           </ul>
         </motion.div>
+
+        {/* Social Media Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="space-y-6 sm:space-y-8"
+        >
+          <h3 className="text-adesa-50 text-xl sm:text-2xl font-medium text-center">
+            Follow Us
+          </h3>
+
+          <div className="flex justify-center gap-8">
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/profile.php?id=61551745417738&mibextid=LQQJ4d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400 transition-colors"
+            >
+              <Facebook className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+            </a>
+
+            {/* Twitter */}
+            <a
+              href="https://x.com/adesagroup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400 transition-colors"
+            >
+              <Twitter className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/adesahq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400 transition-colors"
+            >
+              <Instagram className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/company/adesa-hq/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-adesa-300 hover:text-gold-400 transition-colors"
+            >
+              <Linkedin className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+// Contact Info Card Component
+function ContactInfoCard({ Icon, label, value, href, extraInfo }) {
+  return (
+    <div className="group flex items-start gap-4 sm:gap-6">
+      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-adesa-800 border border-adesa-600 flex items-center justify-center rounded-lg transition-all group-hover:border-gold-400">
+        <Icon className="text-gold-400 w-5 h-5 sm:w-6 sm:h-6" />
+      </div>
+      <div>
+        <h3 className="text-adesa-50 text-sm sm:text-base font-medium mb-1">
+          {label}
+        </h3>
+        <address className="text-adesa-300 not-italic text-sm sm:text-base break-all">
+          {href ? (
+            <a
+              href={href}
+              className="hover:text-gold-400 transition-colors duration-300"
+            >
+              {value}
+            </a>
+          ) : (
+            value
+          )}
+          {extraInfo && (
+            <p className="text-adesa-400 text-xs sm:text-sm mt-1">
+              {extraInfo}
+            </p>
+          )}
+        </address>
+      </div>
+    </div>
   );
 }
