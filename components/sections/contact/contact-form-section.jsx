@@ -5,13 +5,65 @@ import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GridLine from "@/components/ui/gridLine";
+import { z } from "zod";
+
+// Schema for Zod client-side validation
+const contactSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Invalid email address"),
+  service: z.string().min(1, "Service is required"),
+  message: z.string().min(1, "Message is required"),
+});
 
 export default function ContactFormSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
 
-  const handleSubmit = (e) => {
+  // Handle form input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    const parsed = contactSchema.safeParse(formData);
+    if (!parsed.success) {
+      setError(parsed.error.format());
+      return;
+    }
+
+    setIsLoading(true); // Start loading
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setError("Failed to send message");
+      }
+    } catch (error) {
+      setError("An error occurred, please try again.");
+    } finally {
+      setIsLoading(false); // Stop loading
+    }
   };
 
   if (submitted) {
@@ -61,7 +113,7 @@ export default function ContactFormSection() {
 
   return (
     <section
-      className="relative overflow-hidden "
+      className="relative overflow-hidden"
       aria-labelledby="contact-form-heading"
     >
       <div className="absolute inset-0 bg-adesa-900" />
@@ -95,32 +147,55 @@ export default function ContactFormSection() {
 
         <fieldset className="space-y-6 sm:space-y-8 border-0 p-0 m-0">
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-8">
-            <Field label="First Name *" id="firstName" />
-            <Field label="Last Name *" id="lastName" />
+            <Field
+              label="First Name *"
+              id="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+            />
+            <Field
+              label="Last Name *"
+              id="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
           </div>
 
-          <Field label="Email Address *" id="email" type="email" />
+          <Field
+            label="Email Address *"
+            id="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-          <Field label="Organization" id="organization" />
+          <Field
+            label="Organization"
+            id="organization"
+            value={formData.organization}
+            onChange={handleChange}
+          />
 
-          <SelectField />
+          <SelectField value={formData.service} onChange={handleChange} />
 
-          <TextareaField />
+          <TextareaField value={formData.message} onChange={handleChange} />
         </fieldset>
 
         <Button
           type="submit"
           size="lg"
           className="w-full bg-gold-500 hover:bg-gold-400 text-adesa-900 rounded-full py-4 sm:py-6 text-base sm:text-lg mt-6 sm:mt-8"
+          disabled={isLoading} // Disable the button when loading
         >
-          Send Message
+          {isLoading ? "Sending..." : "Send Message"} {/* Show loading text */}
         </Button>
+        {error && <div className="text-red-500">{error}</div>}
       </motion.form>
     </section>
   );
 }
 
-function Field({ label, id, type = "text" }) {
+function Field({ label, id, type = "text", value, onChange }) {
   return (
     <div className="relative">
       <label
@@ -129,19 +204,20 @@ function Field({ label, id, type = "text" }) {
       >
         {label}
       </label>
-
       <input
         id={id}
         name={id}
         type={type}
         required={label.includes("*")}
+        value={value}
+        onChange={onChange}
         className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-adesa-900/60 border border-adesa-700 rounded-xl text-adesa-100 placeholder:text-adesa-500 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-500/30 transition-all"
       />
     </div>
   );
 }
 
-function SelectField() {
+function SelectField({ value, onChange }) {
   return (
     <div>
       <label
@@ -150,10 +226,11 @@ function SelectField() {
       >
         Inquiry Type *
       </label>
-
       <select
         id="inquiryType"
-        name="inquiryType"
+        name="service"
+        value={value}
+        onChange={onChange}
         required
         className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-adesa-900/60 border border-adesa-700 rounded-xl text-adesa-100 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-500/30 transition-all"
       >
@@ -167,7 +244,7 @@ function SelectField() {
   );
 }
 
-function TextareaField() {
+function TextareaField({ value, onChange }) {
   return (
     <div>
       <label
@@ -176,12 +253,13 @@ function TextareaField() {
       >
         Message *
       </label>
-
       <textarea
         id="message"
         name="message"
         rows={5}
         required
+        value={value}
+        onChange={onChange}
         className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-adesa-900/60 border border-adesa-700 rounded-xl text-adesa-100 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-500/30 transition-all resize-none text-sm sm:text-base"
       />
     </div>

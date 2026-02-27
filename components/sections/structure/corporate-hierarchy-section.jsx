@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Layers } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
+import Image from "next/image";
 
 export default function CorporateHierarchySection() {
   return (
@@ -66,8 +67,13 @@ export default function CorporateHierarchySection() {
 
                   <div className="relative z-10">
                     <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 group-hover:border-gold-400 transition">
-                        <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-200 group-hover:text-gold-300 transition" />
+                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 group-hover:border-gold-400 transition">
+                        <Image
+                          src="/logo/Adesa-media-logo-white.png"
+                          alt="Adesa Media"
+                          fill
+                          className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-200 group-hover:text-gold-300 transition"
+                        />
                       </div>
                       <div>
                         <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
@@ -95,8 +101,13 @@ export default function CorporateHierarchySection() {
 
                   <div className="relative z-10">
                     <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 group-hover:border-gold-400 transition">
-                        <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-200 group-hover:text-gold-300 transition" />
+                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 group-hover:border-gold-400 transition">
+                        <Image
+                          src="/logo/Adesa-energy-logo.jpg"
+                          alt="Adesa Energy"
+                          fill
+                          className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-200 group-hover:text-gold-300 transition"
+                        />
                       </div>
                       <div>
                         <h3 className="font-medium text-adesa-50 text-sm sm:text-base">

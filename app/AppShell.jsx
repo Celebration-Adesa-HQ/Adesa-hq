@@ -13,7 +13,8 @@ export default function AppShell({ children }) {
     pathname !== "/structure" &&
     pathname !== "/privacy" &&
     pathname !== "/terms" &&
-    pathname !== "/subsidiaries"
+    pathname !== "/subsidiaries" &&
+    pathname !== "/careers"
   ) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white">

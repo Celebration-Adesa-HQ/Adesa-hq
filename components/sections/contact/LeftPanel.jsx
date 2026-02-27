@@ -58,10 +58,10 @@ export default function LeftPanel() {
               </h3>
               <address className="text-adesa-300 not-italic text-sm sm:text-base break-all">
                 <a
-                  href="mailto:contact@adesahq.com"
+                  href="mailto:info@adesahq.com"
                   className="hover:text-gold-400 transition-colors duration-300"
                 >
-                  contact@adesahq.com
+                  info@adesahq.com
                 </a>
               </address>
             </div>
@@ -77,7 +77,7 @@ export default function LeftPanel() {
                 Location
               </h3>
               <address className="text-adesa-300 not-italic text-sm sm:text-base">
-                Lagos, Nigeria
+                2 Isheri Road, Ojudu-Berger, Lagos
                 <p className="text-adesa-400 text-xs sm:text-sm mt-1">
                   Operating across Africa
                 </p>

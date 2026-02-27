@@ -20,6 +20,7 @@ const navigation = [
     ],
   },
   { name: "Governance", href: "/governance" },
+  { name: "Careers", href: "/careers" },
 ];
 
 export function Header() {

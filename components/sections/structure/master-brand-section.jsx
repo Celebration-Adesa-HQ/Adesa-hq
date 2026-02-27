@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Building2, Layers, ChevronRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
+import Image from "next/image";
 
 const responsibilities = [
   "Strategic planning and resource allocation",
@@ -74,8 +75,14 @@ export default function MasterBrandSection() {
           />
 
           <div className="text-center relative z-10 flex flex-col items-center w-full">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 border-2 border-gold-400 rounded-[10px] sm:rounded-[12px] mb-4 sm:mb-6 bg-adesa-700/20 backdrop-blur-sm">
-              <Building2 className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-gold-400" />
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-[10px] sm:rounded-[12px] mb-4 sm:mb-6 bg-adesa-100/90 backdrop-blur-sm">
+              <Image
+                src="/logo/Adesa-HQ.-logo.png"
+                alt="adesa-hq-logo"
+                width={70}
+                height={70}
+                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-gold-400"
+              />
             </div>
 
             <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-white font-medium mb-1">
@@ -89,14 +96,31 @@ export default function MasterBrandSection() {
             <div className="w-px h-8 sm:h-12 bg-adesa-600 mx-auto mb-6 sm:mb-8" />
 
             <figcaption className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-[320px]">
-              {["Adesa Media", "Adesa Energy"].map((sub) => (
+              {[
+                {
+                  name: "Adesa Media",
+                  image: "/logo/Adesa-media-logo-white.png",
+                },
+                {
+                  name: "Adesa Energy",
+                  image: "/logo/Adesa-energy-logo.jpg",
+                },
+              ].map((sub, idx) => (
                 <div
-                  key={sub}
-                  className="p-3 sm:p-4 rounded-[10px] sm:rounded-[12px] border border-gold-400/40 bg-adesa-700 shadow-[0_0_20px_rgba(212,160,23,0.12)] flex flex-col items-center transition-all duration-300"
+                  key={idx}
+                  className="p-3 sm:p-4 rounded-[10px] sm:rounded-xl border border-gold-400/40 bg-adesa-700 shadow-[0_0_20px_rgba(212,160,23,0.12)] flex flex-col items-center transition-all duration-300"
                 >
-                  <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 mb-2" />
+                  <div className="relative w-8 h-8 rounded-full">
+                    <Image
+                      src={sub.image}
+                      alt={sub.name}
+                      width={50}
+                      height={50}
+                      className="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 mb-2"
+                    />
+                  </div>
                   <p className="text-xs sm:text-sm text-white font-medium text-center">
-                    {sub}
+                    {sub.name}
                   </p>
                   <span className="inline-block mt-2 px-2 sm:px-3 py-1 text-[10px] sm:text-xs bg-gold-500 text-adesa-900 rounded-[6px] font-medium">
                     Active

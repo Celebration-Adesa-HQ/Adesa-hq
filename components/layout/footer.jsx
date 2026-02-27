@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin, Phone, Mail, Globe } from "lucide-react";
 
 const footerNavigation = {
   company: [
@@ -122,7 +122,67 @@ export function Footer() {
                     ))}
                   </ul>
                 </div>
+
+                {/* Added Career Opportunities Section */}
+                <div>
+                  <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400">
+                    Career Opportunities
+                  </h2>
+                  <p className="mt-8 text-sm text-adesa-300">
+                    Join Adesa Energy and help shape the future of sustainable
+                    fuel solutions in Nigeria. Explore open positions and grow
+                    with us.
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    <li>
+                      <Link
+                        href="/careers"
+                        className="text-sm text-gold-400 hover:text-gold-500 transition-colors duration-300"
+                      >
+                        Explore Careers
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </nav>
+            </div>
+          </div>
+        </div>
+
+        {/* Added Contact Information Section */}
+        <div className="relative border-t border-adesa-800/70 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+              <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400">
+                Contact
+              </h2>
+              <ul className="mt-8 space-y-5">
+                <li className="flex items-center gap-3 text-sm text-adesa-300">
+                  <MapPin className="h-4 w-4 text-gold-400" />
+                  <span>2 Isheri road, Ojudu-Berger, Lagos</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-adesa-300">
+                  <Phone className="h-4 w-4 text-gold-400" />
+                  <span>+234 701 2345 154</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-adesa-300">
+                  <Mail className="h-4 w-4 text-gold-400" />
+                  <span>info@adesahq.com</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-adesa-300">
+                  <Globe className="h-4 w-4 text-gold-400" />
+                  <span>
+                    <Link
+                      href="https://www.adesaenergy.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold-400 hover:text-gold-500"
+                    >
+                      www.adesahq.com
+                    </Link>
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
