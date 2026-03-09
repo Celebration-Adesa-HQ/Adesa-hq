@@ -8,4 +8,12 @@ export const siteConfig = {
     twitter: "https://twitter.com/adesahq",
     linkedin: "https://linkedin.com/company/adesa-hq",
   },
+  newsletter: {
+    title: "Weekly Insights",
+    description:
+      "Join 5,000+ subscribers receiving our weekly growth insights.",
+    placeholder: "Email address",
+    submitLabel: "Subscribe",
+    url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
+  },
 };

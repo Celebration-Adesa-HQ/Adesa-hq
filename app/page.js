@@ -7,6 +7,7 @@ import SubsidiariesSection from "@/components/sections/subsidiaries-section";
 import GovernanceCTASection from "@/components/sections/governance-cta-section";
 import FinalCTASection from "@/components/sections/final-cta-section";
 import { constructMetadata } from "@/lib/seo";
+import SubscribeCard from "@/components/sections/SubscribeCard";
 
 export const metadata = constructMetadata({
   title: "Adesa HQ",
@@ -19,7 +20,8 @@ export default function Home() {
   return (
     <main role="main">
       <h1 className="sr-only">
-        Adesa HQ - Builder-operator group launching sector-defining African businesses
+        Adesa HQ - Builder-operator group launching sector-defining African
+        businesses
       </h1>
 
       <HeroSection />
@@ -29,6 +31,22 @@ export default function Home() {
       <PhilosophySection />
       <SubsidiariesSection />
       <GovernanceCTASection />
+      <SubscribeCard
+        buttonText="Subscribe on LinkedIn"
+        className="
+    w-full
+    px-4
+    sm:px-8
+    lg:px-16
+    py-12
+    sm:py-16
+    lg:py-24
+    flex
+    flex-col
+    items-center
+    justify-center
+  "
+      />
       <FinalCTASection />
     </main>
   );
