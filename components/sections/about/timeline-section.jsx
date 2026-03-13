@@ -20,36 +20,24 @@ const staggerContainer = {
 
 const milestones = [
   {
-    year: "2014",
+    year: "2021",
     title: "Foundation",
     description:
       "ADESA HQ established with a vision to transform African business landscapes",
   },
   {
-    year: "2016",
+    year: "2022",
     title: "First Subsidiary",
     description: "Launch of Adesa Media, marking entry into the media sector",
   },
   {
-    year: "2018",
+    year: "2024",
     title: "Expansion",
     description:
       "Strategic expansion into financial services with Adesa Capital",
   },
   {
-    year: "2020",
-    title: "Venture Arm",
-    description:
-      "Establishment of Adesa Ventures to support African tech innovation",
-  },
-  {
-    year: "2022",
-    title: "Real Estate Entry",
-    description:
-      "Launch of Adesa Properties for commercial and residential development",
-  },
-  {
-    year: "2024",
+    year: "2025",
     title: "Pan-African Scale",
     description:
       "Operations across 15+ African markets with 5+ operating subsidiaries",
