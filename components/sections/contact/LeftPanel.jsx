@@ -9,6 +9,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { ADESA_INSTAGRAM_URL } from "@/config/brand";
 
 export default function LeftPanel() {
   return (
@@ -135,7 +136,7 @@ export default function LeftPanel() {
 
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/adesahq"
+              href={ADESA_INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-adesa-300 hover:text-gold-400 transition-colors"

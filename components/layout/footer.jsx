@@ -12,6 +12,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import { ADESA_INSTAGRAM_URL, ADESA_SOLUTIONS } from "@/config/brand";
 
 const footerNavigation = {
   company: [
@@ -22,6 +23,7 @@ const footerNavigation = {
   subsidiaries: [
     { name: "Adesa Media", href: "https://www.adesamedia.com/" },
     { name: "Adesa Energy", href: "https://www.adesaenergy.com/" },
+    { name: ADESA_SOLUTIONS.name, href: ADESA_SOLUTIONS.href },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
@@ -224,7 +226,7 @@ export function Footer() {
             </Link>
 
             <Link
-              href="https://www.instagram.com/adesahq"
+              href={ADESA_INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-adesa-300 hover:text-gold-400"

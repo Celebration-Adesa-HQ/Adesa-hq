@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import Link from "next/link";
 import Image from "next/image";
+import { ADESA_SOLUTIONS } from "@/config/brand";
 
 const subsidiaries = [
   {
@@ -36,6 +37,15 @@ const subsidiaries = [
       "Energy Consulting",
       "Sustainable Solutions",
     ],
+  },
+  {
+    name: ADESA_SOLUTIONS.name,
+    sector: ADESA_SOLUTIONS.sector,
+    description: ADESA_SOLUTIONS.description,
+    status: "active",
+    href: ADESA_SOLUTIONS.href,
+    image: ADESA_SOLUTIONS.image,
+    services: ADESA_SOLUTIONS.services,
   },
 ];
 

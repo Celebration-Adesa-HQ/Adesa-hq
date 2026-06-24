@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Logo from "../ui/logo";
+import { ADESA_SOLUTIONS } from "@/config/brand";
 
 export default function HeroSection() {
   return (
@@ -108,7 +109,7 @@ export default function HeroSection() {
                   <div className="absolute top-1/2 w-[70%] h-px bg-white/20" />
                 </div>
 
-                <div className="flex justify-between w-full max-w-[240px] sm:max-w-[280px]">
+                <div className="grid w-full max-w-[320px] grid-cols-3 gap-4 sm:gap-6">
                   <div className="flex flex-col items-center">
                     <div className="relative w-12 h-12 sm:w-16 sm:h-16 overflow-hidden rounded-2xl bg-white/10 flex items-center justify-center mb-2 sm:mb-3">
                       <Image
@@ -138,6 +139,22 @@ export default function HeroSection() {
                     </div>
                     <p className="text-xs sm:text-sm text-white/60 font-medium text-center">
                       Adesa Media
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <div className="relative w-12 h-12 sm:w-16 sm:h-16 overflow-hidden rounded-2xl bg-white/10 flex items-center justify-center mb-2 sm:mb-3">
+                      <Image
+                        src="/logo/Adesa-solution.jpg"
+                        alt={`${ADESA_SOLUTIONS.name} Logo`}
+                        width={64}
+                        height={64}
+                        loading="lazy"
+                        className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                      />
+                    </div>
+                    <p className="text-xs sm:text-sm text-white/60 font-medium text-center">
+                      {ADESA_SOLUTIONS.name}
                     </p>
                   </div>
                 </div>

@@ -7,6 +7,8 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/adesahq",
     linkedin: "https://linkedin.com/company/adesa-hq",
+    instagram:
+      "https://www.instagram.com/adesasolution?igsh=YTU2ZnFhYTNvZTll&utm_source=qr",
   },
   newsletter: {
     title: "Weekly Insights",

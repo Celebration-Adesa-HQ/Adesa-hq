@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Layers, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
 import Image from "next/image";
+import { ADESA_SOLUTIONS } from "@/config/brand";
 
 const responsibilities = [
   "Strategic planning and resource allocation",
@@ -95,7 +96,7 @@ export default function MasterBrandSection() {
 
             <div className="w-px h-8 sm:h-12 bg-adesa-600 mx-auto mb-6 sm:mb-8" />
 
-            <figcaption className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-[320px]">
+            <figcaption className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full max-w-[480px]">
               {[
                 {
                   name: "Adesa Media",
@@ -104,6 +105,10 @@ export default function MasterBrandSection() {
                 {
                   name: "Adesa Energy",
                   image: "/logo/Adesa-energy-logo.jpg",
+                },
+                {
+                  name: "Adesa Solutions",
+                  image: "/logo/Adesa-solution.jpg",
                 },
               ].map((sub, idx) => (
                 <div
@@ -116,7 +121,7 @@ export default function MasterBrandSection() {
                       alt={sub.name}
                       width={50}
                       height={50}
-                      className="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 mb-2"
+                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain text-gold-400 mb-2"
                     />
                   </div>
                   <p className="text-xs sm:text-sm text-white font-medium text-center">

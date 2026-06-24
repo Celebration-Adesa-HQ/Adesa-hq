@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import GridLine from "@/components/ui/gridLine";
+import { ADESA_INSTAGRAM_URL } from "@/config/brand";
 
 export default function ContactSection() {
   return (
@@ -100,7 +101,7 @@ export default function ContactSection() {
         </motion.a>
 
         <motion.a
-          href="https://www.instagram.com/adesahq"
+          href={ADESA_INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="text-center p-6 sm:p-8 rounded-2xl bg-adesa-700/30 backdrop-blur-md border border-adesa-700 hover:bg-adesa-600 transition-all"

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Logo from "../ui/logo";
+import { ADESA_SOLUTIONS } from "@/config/brand";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -17,6 +18,7 @@ const navigation = [
     children: [
       { name: "Adesa Media", href: "https://www.adesamedia.com/" },
       { name: "Adesa Energy", href: "https://www.adesaenergy.com/" },
+      { name: ADESA_SOLUTIONS.name, href: ADESA_SOLUTIONS.href },
     ],
   },
   { name: "Governance", href: "/governance" },

@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
 import Image from "next/image";
+import { ADESA_SOLUTIONS } from "@/config/brand";
 
 export default function CorporateHierarchySection() {
   return (
@@ -129,24 +129,30 @@ export default function CorporateHierarchySection() {
                   </div>
                 </article>
 
-                {/* Development */}
-                <article className="relative border border-adesa-700 bg-adesa-800/40 p-5 sm:p-8 opacity-60 rounded-lg">
-                  <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600">
-                      <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-400" />
+                {/* Solutions */}
+                <article className="group relative border border-adesa-700 bg-adesa-800 p-5 sm:p-8 rounded-lg transition-all duration-500 hover:border-gold-400">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 to-gold-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-lg" />
+                  <div className="relative z-10 flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 overflow-hidden">
+                      <Image
+                        src={ADESA_SOLUTIONS.image}
+                        alt={`${ADESA_SOLUTIONS.name} logo`}
+                        fill
+                        className="object-contain p-2"
+                      />
                     </div>
                     <div>
-                      <h3 className="font-medium text-adesa-400 text-sm sm:text-base">
-                        In Development
+                      <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
+                        {ADESA_SOLUTIONS.name}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-adesa-500">
-                        Sector TBD
+                      <p className="text-[11px] sm:text-xs text-adesa-400">
+                        {ADESA_SOLUTIONS.sector}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-adesa-500">
-                    Coming soon
+                  <p className="text-xs sm:text-sm text-adesa-300">
+                    {ADESA_SOLUTIONS.description}
                   </p>
                 </article>
               </div>
