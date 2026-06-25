@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import AppShell from "./AppShell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { siteConfig } from "@/config/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = localFont({
   src: [
@@ -109,6 +110,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </AppShell>
+        <Analytics />
       </body>
     </html>
   );
