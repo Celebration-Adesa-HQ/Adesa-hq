@@ -1,25 +1,25 @@
 import { Section } from "@/components/ui/section";
 import ContactFormSection from "@/components/sections/contact/contact-form-section";
-import { constructMetadata } from "@/lib/seo";
+import { constructMetadata, buildContactPageJsonLd } from "@/lib/seo";
 import GridLine from "@/components/ui/gridLine";
 import LeftPanel from "@/components/sections/contact/LeftPanel";
 import HeroSection from "@/components/sections/contact/hero-section";
+import PageJsonLd from "@/components/seo/page-json-ld";
 
 export const metadata = constructMetadata({
-  title: "Contact Us",
+  title: "Contact ADESA HQ | Partnership, Media & General Inquiries",
   description:
-    "Get in touch with ADESA HQ for partnership opportunities, media inquiries, or general questions about our builder-operator approach to African enterprise.",
+    "Get in touch with ADESA HQ for partnership opportunities, media inquiries, investor questions, or general questions about our builder-operator approach to African enterprise.",
   path: "/contact", // canonical URL for contact page
+  keywords: ["contact ADESA HQ", "partnership inquiries", "media inquiries"],
 });
+
+const contactJsonLd = buildContactPageJsonLd();
 
 export default function ContactPage() {
   return (
     <main role="main">
-      {/* Hidden H1 for SEO */}
-      <h1 className="sr-only">
-        Contact ADESA HQ - Partnership, Media Inquiries, and General Questions
-      </h1>
-
+      <PageJsonLd data={contactJsonLd} />
       {/* HERO */}
       <HeroSection />
 

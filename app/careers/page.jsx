@@ -2,30 +2,38 @@ import HeroSection from "@/components/sections/career/hero-section";
 import JobListings from "@/components/sections/career/job-listings";
 import ContactSection from "@/components/sections/career/contact-section";
 import { constructMetadata } from "@/lib/seo";
+import PageJsonLd from "@/components/seo/page-json-ld";
+import { siteConfig } from "@/config/site";
 
 export const metadata = constructMetadata({
-  title: "Careers at Adesa HQ",
+  title: "Careers | Join ADESA HQ and Our Operating Companies",
   description:
-    "Join Adesa HQ and help shape the future of African businesses. Explore open positions and grow with a multi-sector investment group.",
+    "Join ADESA HQ and help shape the future of African businesses. Explore open positions and grow with a multi-sector builder-operator group.",
   path: "/careers", // canonical URL for the careers page
+  keywords: ["careers", "jobs in Africa", "ADESA HQ careers"],
 });
+
+const careersJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Careers at ADESA HQ",
+  url: `${siteConfig.url}/careers`,
+  description:
+    "Join ADESA HQ and help shape the future of African businesses. Explore open positions and grow with a multi-sector builder-operator group.",
+  isPartOf: {
+    "@id": `${siteConfig.url}#website`,
+  },
+  about: {
+    "@id": `${siteConfig.url}#organization`,
+  },
+};
 
 export default function CareerPage() {
   return (
     <main role="main">
-      {/* Hidden H1 for SEO */}
-      <h1 className="sr-only">
-        Careers at Adesa HQ - Explore Open Positions and Grow with a
-        Multi-Sector African Group
-      </h1>
-
-      {/* HERO */}
+      <PageJsonLd data={careersJsonLd} />
       <HeroSection />
-
-      {/* OPEN POSITIONS */}
       <JobListings />
-
-      {/* CONTACT */}
       <ContactSection />
     </main>
   );

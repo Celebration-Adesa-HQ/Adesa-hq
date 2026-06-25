@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 export default function robots() {
   return {
     rules: {
@@ -5,6 +7,7 @@ export default function robots() {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://adesahq.com/sitemap.xml",
+    host: siteConfig.url,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

@@ -10,20 +10,16 @@ import { constructMetadata } from "@/lib/seo";
 import SubscribeCard from "@/components/sections/SubscribeCard";
 
 export const metadata = constructMetadata({
-  title: "Adesa HQ",
+  title: "ADESA HQ | Builder-Operator Group in Africa",
   description:
-    "ADESA HQ is a builder-operator group focused on conceiving, launching, and scaling sector-defining African businesses.",
+    "ADESA HQ is a builder-operator group focused on conceiving, launching, governing, and scaling sector-defining African businesses across Africa.",
   path: "/", // ensures canonical URL points to homepage
+  keywords: ["builder-operator group Africa", "African holding company", "ADESA HQ"],
 });
 
 export default function Home() {
   return (
     <main role="main">
-      <h1 className="sr-only">
-        Adesa HQ - Builder-operator group launching sector-defining African
-        businesses
-      </h1>
-
       <HeroSection />
       <VisionMissionSection />
       <OperatingModelSection />

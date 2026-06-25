@@ -1,5 +1,7 @@
+import { siteConfig } from "@/config/site";
+
 export default async function sitemap() {
-  const baseUrl = "https://adesahq.com";
+  const baseUrl = siteConfig.url;
 
   const staticPages = [
     {
