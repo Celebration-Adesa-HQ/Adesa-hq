@@ -5,49 +5,9 @@ import { ArrowRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import Link from "next/link";
 import Image from "next/image";
-import { ADESA_SOLUTIONS } from "@/config/brand";
+import { ACTIVE_SUBSIDIARIES } from "@/config/brand";
 
-const subsidiaries = [
-  {
-    name: "Adesa Media",
-    sector: "Media & Creative Services",
-    description:
-      "A full-spectrum media and creative services company delivering strategic communications, brand development, and content production for leading organizations across Africa.",
-    status: "active",
-    href: "https://www.adesamedia.com/",
-    image: "/logo/Adesa-media-logo-white.png",
-    services: [
-      "Strategic Communications",
-      "Brand Development",
-      "Content Production",
-      "Digital Media",
-    ],
-  },
-  {
-    name: "Adesa Energy",
-    sector: "Renewable Energy Solutions",
-    description:
-      "Focused on renewable power solutions and critical infrastructure development to support sustainable growth across African markets.",
-    status: "active",
-    href: "https://adesaenergy.com/",
-    image: "/logo/Adesa-energy-logo.jpg",
-    services: [
-      "Solar Infrastructure",
-      "Grid Modernization",
-      "Energy Consulting",
-      "Sustainable Solutions",
-    ],
-  },
-  {
-    name: ADESA_SOLUTIONS.name,
-    sector: ADESA_SOLUTIONS.sector,
-    description: ADESA_SOLUTIONS.description,
-    status: "active",
-    href: ADESA_SOLUTIONS.href,
-    image: ADESA_SOLUTIONS.image,
-    services: ADESA_SOLUTIONS.services,
-  },
-];
+const subsidiaries = ACTIVE_SUBSIDIARIES;
 
 export default function ActiveSubsidiariesSection() {
   return (
@@ -82,14 +42,24 @@ export default function ActiveSubsidiariesSection() {
                 {/* Header Row */}
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
                   <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-adesa-700 border border-adesa-600 flex items-center justify-center shrink-0">
-                    <Image
-                      src={subsidiary.image}
-                      width={40}
-                      height={40}
-                      alt={`${subsidiary.name} Logo`}
-                      loading="lazy"
-                      className="object-contain"
-                    />
+                    {subsidiary.image ? (
+                      <Image
+                        src={subsidiary.image}
+                        width={40}
+                        height={40}
+                        alt={`${subsidiary.name} Logo`}
+                        loading="lazy"
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span
+                        role="img"
+                        aria-label={`${subsidiary.name} temporary logo`}
+                        className="font-serif text-lg sm:text-xl font-semibold tracking-wide text-gold-400"
+                      >
+                        {subsidiary.badge}
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex-1">
@@ -154,12 +124,12 @@ export default function ActiveSubsidiariesSection() {
                   className="space-y-4 sm:space-y-5"
                   aria-label={`${subsidiary.name} Quick Facts`}
                 >
-                  {[
+                  {(subsidiary.quickFacts ?? [
                     "Part of ADESA HQ Group",
                     "Serves clients across Africa",
                     "Governance-first approach",
                     "Long-term partnerships focus",
-                  ].map((fact) => (
+                  ]).map((fact) => (
                     <li key={fact} className="flex items-start">
                       <span className="w-2 h-2 bg-gold-400 mt-2 mr-3 sm:mr-4 shrink-0" />
                       <span className="text-adesa-300 text-xs sm:text-sm leading-relaxed">

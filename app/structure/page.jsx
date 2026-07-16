@@ -22,7 +22,7 @@ const structureJsonLd = buildWebPageJsonLd({
 
 export default function GroupStructurePage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={structureJsonLd} />
       {/* Hero - Server Component */}
       <HeroSection />

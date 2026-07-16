@@ -19,7 +19,7 @@ const privacyJsonLd = buildWebPageJsonLd({
 
 export default function PrivacyPage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={privacyJsonLd} />
       {/* Hero Section */}
       <HeroSection />

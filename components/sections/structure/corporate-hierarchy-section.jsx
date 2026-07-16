@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
 import Image from "next/image";
-import { ADESA_SOLUTIONS } from "@/config/brand";
+import { ACTIVE_SUBSIDIARIES } from "@/config/brand";
+
+const subsidiaryCards = ACTIVE_SUBSIDIARIES.map((subsidiary) => ({
+  ...subsidiary,
+  isExternal: subsidiary.href.startsWith("http"),
+}));
 
 export default function CorporateHierarchySection() {
   return (
@@ -60,101 +65,64 @@ export default function CorporateHierarchySection() {
                 Operating Subsidiaries
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-                {/* Card */}
-                <article className="group relative border border-adesa-700 bg-adesa-800 p-5 sm:p-8 transition-all duration-500 hover:border-gold-400 rounded-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 to-gold-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-lg" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-8">
+                {subsidiaryCards.map((subsidiary) => (
+                  <article
+                    key={subsidiary.name}
+                    className="group relative border border-adesa-700 bg-adesa-800 p-5 sm:p-8 rounded-lg transition-all duration-500 hover:border-gold-400"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 to-gold-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-lg" />
 
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 group-hover:border-gold-400 transition">
-                        <Image
-                          src="/logo/Adesa-media-logo-white.png"
-                          alt="Adesa Media"
-                          fill
-                          className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-200 group-hover:text-gold-300 transition"
-                        />
+                    <div className="relative z-10">
+                      <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 overflow-hidden group-hover:border-gold-400 transition">
+                          {subsidiary.image ? (
+                            <Image
+                              src={subsidiary.image}
+                              alt={`${subsidiary.name} logo`}
+                              fill
+                              className="object-contain p-2"
+                            />
+                          ) : (
+                            <span
+                              role="img"
+                              aria-label={`${subsidiary.name} temporary logo`}
+                              className="font-serif text-sm sm:text-base font-semibold tracking-wide text-gold-400"
+                            >
+                              {subsidiary.badge}
+                            </span>
+                          )}
+                        </div>
+                        <div>
+                          <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
+                            {subsidiary.name}
+                          </h3>
+                          <p className="text-[11px] sm:text-xs text-adesa-400">
+                            {subsidiary.sector}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
-                          Adesa Media
-                        </h3>
-                        <p className="text-[11px] sm:text-xs text-adesa-400">
-                          Media & Creative Services
-                        </p>
-                      </div>
-                    </div>
 
-                    <a
-                      href="/subsidiaries/media"
-                      className="text-xs sm:text-sm text-gold-300 hover:text-gold-400 flex items-center"
-                    >
-                      View details
-                      <span className="ml-2">→</span>
-                    </a>
-                  </div>
-                </article>
-
-                {/* Card */}
-                <article className="group relative border border-adesa-700 bg-adesa-800 p-5 sm:p-8 transition-all duration-500 hover:border-gold-400 rounded-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 to-gold-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-lg" />
-
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 group-hover:border-gold-400 transition">
-                        <Image
-                          src="/logo/Adesa-energy-logo.jpg"
-                          alt="Adesa Energy"
-                          fill
-                          className="w-4 h-4 sm:w-5 sm:h-5 text-adesa-200 group-hover:text-gold-300 transition"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
-                          Adesa Energy
-                        </h3>
-                        <p className="text-[11px] sm:text-xs text-adesa-400">
-                          Renewable Energy Solutions
-                        </p>
-                      </div>
-                    </div>
-
-                    <a
-                      href="/subsidiaries/energy"
-                      className="text-xs sm:text-sm text-gold-300 hover:text-gold-400 flex items-center"
-                    >
-                      View details
-                      <span className="ml-2">→</span>
-                    </a>
-                  </div>
-                </article>
-
-                {/* Solutions */}
-                <article className="group relative border border-adesa-700 bg-adesa-800 p-5 sm:p-8 rounded-lg transition-all duration-500 hover:border-gold-400">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 to-gold-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-lg" />
-                  <div className="relative z-10 flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 overflow-hidden">
-                      <Image
-                        src={ADESA_SOLUTIONS.image}
-                        alt={`${ADESA_SOLUTIONS.name} logo`}
-                        fill
-                        className="object-contain p-2"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
-                        {ADESA_SOLUTIONS.name}
-                      </h3>
-                      <p className="text-[11px] sm:text-xs text-adesa-400">
-                        {ADESA_SOLUTIONS.sector}
+                      <p className="text-xs sm:text-sm text-adesa-300">
+                        {subsidiary.description}
                       </p>
-                    </div>
-                  </div>
 
-                  <p className="text-xs sm:text-sm text-adesa-300">
-                    {ADESA_SOLUTIONS.description}
-                  </p>
-                </article>
+                      <a
+                        href={subsidiary.href}
+                        target={subsidiary.isExternal ? "_blank" : undefined}
+                        rel={
+                          subsidiary.isExternal
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="mt-4 inline-flex text-xs sm:text-sm text-gold-300 hover:text-gold-400 items-center"
+                      >
+                        View details
+                        <span className="ml-2">→</span>
+                      </a>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </motion.div>

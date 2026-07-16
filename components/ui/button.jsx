@@ -14,16 +14,17 @@ export function Button({
   type = "button",
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-none border-adesa-400 ";
+    "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-adesa-950 active:scale-[0.98]";
 
   const variants = {
-    primary: "bg-adesa-900 text-white hover:bg-adesa-800 focus:ring-adesa-900",
+    primary:
+      "bg-gold-400 text-adesa-950 hover:bg-gold-300 focus:ring-gold-400 shadow-[0_16px_40px_rgba(198,150,45,0.24)]",
     secondary:
-      "bg-white text-adesa-900 hover:bg-neutral-50 focus:ring-adesa-900 dark:bg-adesa-800 dark:text-white",
+      "bg-white text-adesa-950 hover:bg-adesa-100 focus:ring-adesa-200",
     outline:
-      "border-2 border-adesa-900 text-adesa-900 hover:bg-adesa-900 hover:text-white focus:ring-adesa-900 dark:border-neutral-300 dark:text-neutral-300 dark:hover:bg-neutral-800",
+      "border border-white/18 text-adesa-100 hover:border-gold-400 hover:bg-white/6 hover:text-gold-300 focus:ring-gold-400",
     ghost:
-      "text-adesa-900 hover:bg-neutral-50 focus:ring-adesa-900 dark:text-neutral-300 dark:hover:bg-neutral-800",
+      "text-adesa-100 hover:bg-white/6 focus:ring-gold-400",
   };
 
   const sizes = {

@@ -12,7 +12,11 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import { ADESA_INSTAGRAM_URL, ADESA_SOLUTIONS } from "@/config/brand";
+import {
+  ACTIVE_SUBSIDIARIES,
+  ADESA_INSTAGRAM_URL,
+} from "@/config/brand";
+import { siteConfig } from "@/config/site";
 
 const footerNavigation = {
   company: [
@@ -20,11 +24,7 @@ const footerNavigation = {
     { name: "Group Structure", href: "/structure" },
     { name: "Governance", href: "/governance" },
   ],
-  subsidiaries: [
-    { name: "Adesa Media", href: "https://www.adesamedia.com/" },
-    { name: "Adesa Energy", href: "https://www.adesaenergy.com/" },
-    { name: ADESA_SOLUTIONS.name, href: ADESA_SOLUTIONS.href },
-  ],
+  subsidiaries: ACTIVE_SUBSIDIARIES.map(({ name, href }) => ({ name, href })),
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
@@ -62,16 +62,35 @@ export function Footer() {
                 </span>
               </Link>
 
-              <p className="mt-8 text-adesa-300 max-w-md leading-relaxed text-base">
-                A builder–operator group focused on conceiving, launching,
-                governing, and scaling sector-defining African businesses.
+              <p className="mt-8 max-w-md text-base leading-relaxed text-adesa-300">
+                ADESA HQ builds and governs operating companies with clear
+                standards, disciplined capital allocation, and long-duration
+                ambition.
               </p>
 
               <div className="mt-10 flex items-center gap-3">
                 <div className="w-10 h-[1px] bg-gold-400" />
                 <p className="text-sm text-adesa-400 tracking-wide">
-                  Building generational systems across Africa
+                  Governance-led institution building across Africa
                 </p>
+              </div>
+
+              <div className="mt-10 rounded-[24px] border border-white/8 bg-white/4 p-6 backdrop-blur-xl">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-gold-400">
+                  Follow the Adesa Lens
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-adesa-300">
+                  {siteConfig.newsletter.description}
+                </p>
+                <Link
+                  href={siteConfig.newsletter.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center text-sm font-medium text-gold-300 transition-colors hover:text-gold-200"
+                >
+                  {siteConfig.newsletter.submitLabel}
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Link>
               </div>
             </div>
 
@@ -137,15 +156,13 @@ export function Footer() {
                   </ul>
                 </div>
 
-                {/* Career Opportunities Section */}
                 <div>
                   <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400">
-                    Career Opportunities
+                    Careers
                   </h2>
                   <p className="mt-8 text-sm text-adesa-300">
-                    Join Adesa Energy and help shape the future of sustainable
-                    fuel solutions in Nigeria. Explore open positions and grow
-                    with us.
+                    Explore opportunities across the group and within our
+                    operating companies as the portfolio grows.
                   </p>
                   <ul className="mt-4 space-y-2">
                     <li>
@@ -165,7 +182,7 @@ export function Footer() {
 
         {/* Contact Information Section */}
         <div className="relative border-t border-adesa-800/70 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400">
                 Contact
@@ -173,21 +190,21 @@ export function Footer() {
               <ul className="mt-8 space-y-5">
                 <li className="flex items-center gap-3 text-sm text-adesa-300">
                   <MapPin className="h-4 w-4 text-gold-400" />
-                  <span>2 Isheri road, Ojudu-Berger, Lagos</span>
+                  <span>{siteConfig.contact.address}</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-adesa-300">
                   <Phone className="h-4 w-4 text-gold-400" />
-                  <span>+234 701 2345 154</span>
+                  <span>{siteConfig.contact.phone}</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-adesa-300">
                   <Mail className="h-4 w-4 text-gold-400" />
-                  <span>info@adesahq.com</span>
+                  <span>{siteConfig.contact.email}</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-adesa-300">
                   <Globe className="h-4 w-4 text-gold-400" />
                   <span>
                     <Link
-                      href="https://www.adesaenergy.com"
+                      href={siteConfig.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gold-400 hover:text-gold-500"
@@ -203,8 +220,8 @@ export function Footer() {
 
         {/* Social Media Section */}
         <div className="relative border-t border-adesa-800/70 py-8">
-          <h2 className="text-xs tracking-[0.3em] uppercase text-adesa-400 text-center mb-6">
-            Follow Us
+          <h2 className="mb-6 text-center text-xs uppercase tracking-[0.3em] text-adesa-400">
+            Group Channels
           </h2>
           <div className="flex justify-center gap-6">
             <Link

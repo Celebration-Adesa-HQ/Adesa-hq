@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden pt-32 sm:pt-32 pb-20 sm:pb-24 lg:pt-40 lg:pb-32 bg-adesa-900 text-adesa-50"
+      className="relative overflow-hidden bg-adesa-950 pt-32 pb-20 text-adesa-50 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32"
       aria-labelledby="hero-heading"
     >
       {/* Floating background orbs */}
@@ -18,17 +18,20 @@ export default function HeroSection() {
       <GridLine show />
 
       <motion.div
-        className="relative z-10 text-center max-w-[90%] sm:max-w-3xl mx-auto px-4 sm:px-6"
+        className="relative z-10 mx-auto max-w-[90%] px-4 text-center sm:max-w-3xl sm:px-6"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold leading-tight">
-          Join Our Team
+        <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-gold-300">
+          Careers
+        </p>
+        <h1 className="text-3xl font-medium leading-[1.04] tracking-[-0.04em] sm:text-5xl lg:text-7xl">
+          Build with a group that values structure, responsibility, and long-term work.
         </h1>
         <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-adesa-200 leading-relaxed">
-          At Adesa Energy, we're shaping the future of sustainable fuel
-          solutions. Explore our open positions and grow with us.
+          Explore current openings and future opportunities across ADESA HQ and
+          the operating companies within the portfolio.
         </p>
         <div className="mt-6 sm:mt-10">
           <a

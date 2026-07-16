@@ -14,7 +14,7 @@ export default function HeroSection() {
       </div>
 
       <GridLine />
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('/noise.png')]" />
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.65)_1px,transparent_0)] bg-[size:22px_22px]" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8 py-32 lg:py-40">
         <header className="text-center lg:text-left">

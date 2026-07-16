@@ -2,23 +2,24 @@
 
 /* Design Tokens */
 @theme {
-  --font-sans: Inter, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
 
-  --color-adesa-900: #0A0F1C;
-  --color-adesa-800: #141B2D;
-  --color-adesa-700: #1E2A45;
-  --color-adesa-600: #2D3A5C;
-  --color-adesa-500: #3D4E73;
-  --color-adesa-400: #5A6B8A;
-  --color-adesa-300: #8494B2;
-  --color-adesa-200: #B8C4D9;
-  --color-adesa-100: #E4E9F2;
-  --color-adesa-50: #F5F7FA;
+  --color-adesa-950: #070b14;
+  --color-adesa-900: #0d1321;
+  --color-adesa-800: #162034;
+  --color-adesa-700: #24314b;
+  --color-adesa-600: #33415f;
+  --color-adesa-500: #4a5a7c;
+  --color-adesa-400: #7080a0;
+  --color-adesa-300: #9ca8c2;
+  --color-adesa-200: #cad3e3;
+  --color-adesa-100: #e8edf5;
+  --color-adesa-50: #f7f9fc;
 
-  --color-gold-500: #B8860B;
-  --color-gold-400: #D4A017;
-  --color-gold-300: #E5B832;
+  --color-gold-500: #9a6e18;
+  --color-gold-400: #c6962d;
+  --color-gold-300: #dfbb68;
 
   --color-neutral-950: #030712;
   --color-neutral-900: #111827;
@@ -39,9 +40,25 @@ html {
 }
 
 body {
+  background: var(--color-adesa-950);
+  color: var(--color-adesa-100);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* Selection */
@@ -66,4 +83,84 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-adesa-600);
+}
+
+.adesa-grid-texture {
+  background-image:
+    linear-gradient(to right, rgb(232 237 245 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(232 237 245 / 0.06) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.adesa-noise-texture {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(255 255 255 / 0.55) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+.adesa-shell-surface {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.02)),
+    rgb(13 19 33 / 0.78);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.12),
+    0 28px 80px rgb(3 7 18 / 0.42);
+  backdrop-filter: blur(22px);
+}
+
+/* Animations */
+@keyframes blob1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(1.08);
+  }
+}
+@keyframes blob2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-30px, 25px) scale(1.05);
+  }
+}
+@keyframes blob_20s_infinite {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(0.9);
+  }
+}
+@keyframes blob_25s_infinite {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-25px, 20px) scale(0.95);
+  }
+  66% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+}
+
+.animate-blob1 {
+  animation: blob1 14s infinite ease-in-out;
+}
+.animate-blob2 {
+  animation: blob2 18s infinite ease-in-out;
+}
+.animate-blob-slow-1 {
+  animation: blob_20s_infinite 20s infinite ease-in-out;
+}
+.animate-blob-slow-2 {
+  animation: blob_25s_infinite 25s infinite ease-in-out;
 }

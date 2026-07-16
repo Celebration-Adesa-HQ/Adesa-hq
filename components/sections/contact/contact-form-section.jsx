@@ -22,6 +22,7 @@ export default function ContactFormSection() {
     firstName: "",
     lastName: "",
     email: "",
+    organization: "",
     service: "",
     message: "",
   });
@@ -40,7 +41,12 @@ export default function ContactFormSection() {
 
     const parsed = contactSchema.safeParse(formData);
     if (!parsed.success) {
-      setError(parsed.error.format());
+      // Extract a human-readable message from the first Zod issue
+      const firstIssue = parsed.error.issues[0];
+      const fieldLabel = firstIssue.path.length
+        ? firstIssue.path.join(" → ") + ": "
+        : "";
+      setError(fieldLabel + firstIssue.message);
       return;
     }
 

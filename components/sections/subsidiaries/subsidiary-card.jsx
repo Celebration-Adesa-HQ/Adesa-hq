@@ -10,6 +10,7 @@ export default function SubsidiaryCard({
   services,
   href,
   featured = false,
+  external = false,
 }) {
   return (
     <motion.article
@@ -60,6 +61,8 @@ export default function SubsidiaryCard({
         <div className="mt-auto">
           <Link
             href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
             className={`inline-flex items-center text-xs sm:text-sm tracking-wide transition-colors ${
               featured
                 ? "text-[var(--color-gold-400)] hover:text-[var(--color-gold-300)]"

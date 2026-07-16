@@ -19,7 +19,7 @@ const termsJsonLd = buildWebPageJsonLd({
 
 export default function TermsPage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={termsJsonLd} />
       {/* Hero Section */}
       <HeroSectionTerms />

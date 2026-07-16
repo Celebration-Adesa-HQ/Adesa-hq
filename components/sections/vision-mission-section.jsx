@@ -25,6 +25,16 @@ export default function VisionMissionSection() {
         aria-hidden="true"
       />
 
+      <div className="relative z-10 mb-14 max-w-3xl">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.28em] text-gold-300">
+          Group thesis
+        </p>
+        <h2 className="text-4xl font-medium tracking-[-0.03em] text-adesa-50 lg:text-5xl">
+          We build companies that can stand up to scrutiny, scale with
+          discipline, and compound value over time.
+        </h2>
+      </div>
+
       <div className="relative z-10 grid gap-10 sm:gap-14 lg:grid-cols-2 lg:gap-20">
         {/* Vision */}
         <motion.article
@@ -40,23 +50,22 @@ export default function VisionMissionSection() {
           />
 
           <p className="text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase text-[var(--color-neutral-400)] mb-4 sm:mb-6">
-            Our Vision
+            Vision
           </p>
 
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-medium tracking-tight leading-[1.15]">
             <span className="block text-[var(--color-adesa-50)]">
-              To build Africa&apos;s most
+              To develop a portfolio of
             </span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gold-300)] to-[var(--color-gold-500)]">
-              disciplined holding structure
+              trusted and well-governed operating companies
             </span>
           </h2>
 
           <p className="mt-6 sm:mt-8 text-sm sm:text-base lg:text-lg leading-relaxed text-[var(--color-adesa-300)]">
-            We envision a future where African enterprises are synonymous with
-            institutional excellence, where governance is a competitive
-            advantage, and where long-term value creation supersedes short-term
-            gains.
+            Our ambition is to help define a more institutional model for
+            African enterprise, one where clarity of governance and quality of
+            execution become durable competitive advantages.
           </p>
         </motion.article>
 
@@ -74,22 +83,22 @@ export default function VisionMissionSection() {
           />
 
           <p className="text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase text-[var(--color-neutral-400)] mb-4 sm:mb-6">
-            Our Mission
+            Mission
           </p>
 
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-medium tracking-tight leading-[1.15]">
             <span className="block text-[var(--color-adesa-50)]">
-              Conceive, launch, and scale
+              Conceive, launch, and strengthen
             </span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-gold-300)] to-[var(--color-gold-500)]">
-              sector-defining businesses
+              businesses with long-term relevance
             </span>
           </h2>
 
           <p className="mt-6 sm:mt-8 text-sm sm:text-base lg:text-lg leading-relaxed text-[var(--color-adesa-300)]">
-            Through rigorous governance, strategic capital allocation, and
-            operational discipline, we build businesses that create lasting
-            value for stakeholders and communities across the continent.
+            We bring together capital discipline, operating support, and clear
+            oversight so that each company in the group can grow on a stronger,
+            more accountable foundation.
           </p>
         </motion.article>
       </div>

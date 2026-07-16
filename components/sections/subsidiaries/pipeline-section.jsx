@@ -6,9 +6,21 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
 
 const plannedSubsidiaries = [
-  { sector: "Technology", status: "In Development" },
-  { sector: "Real Estate", status: "Planned" },
-  { sector: "Financial Services", status: "Planned" },
+  {
+    sector: "Technology",
+    status: "In Development",
+    description: "Building platforms to support digital commerce, fintech integrations, and business process automation across emerging markets.",
+  },
+  {
+    sector: "Real Estate",
+    status: "Planned",
+    description: "Developing commercial and light industrial infrastructure to support logistics, warehousing, and operational scale.",
+  },
+  {
+    sector: "Financial Services",
+    status: "Planned",
+    description: "Structuring trade finance and capital solutions designed to facilitate cross-border commerce and group synergies.",
+  },
 ];
 
 export default function PipelineSection() {
@@ -50,16 +62,23 @@ export default function PipelineSection() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
-            className="relative bg-adesa-800 border border-adesa-700 p-8 rounded-3xl text-center shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:scale-[1.03] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
+            className="relative bg-adesa-800 border border-adesa-700 p-8 rounded-3xl text-center shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:scale-[1.03] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300 flex flex-col items-center justify-between"
             role="listitem"
           >
-            <div className="w-16 h-16 bg-adesa-700/40 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 border border-adesa-600">
-              <Building2 className="w-8 h-8 text-gold-400" aria-hidden="true" />
+            <div className="w-full">
+              <div className="w-16 h-16 bg-adesa-700/40 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 border border-adesa-600">
+                <Building2 className="w-8 h-8 text-gold-400" aria-hidden="true" />
+              </div>
+              <h3 className="font-semibold text-adesa-50 mb-2 text-xl">
+                {item.sector}
+              </h3>
+              <span className="inline-block px-3 py-1 text-[10px] uppercase font-semibold tracking-wider border border-gold-400 text-gold-400 rounded-full mb-4">
+                {item.status}
+              </span>
+              <p className="text-sm text-adesa-300 leading-relaxed mb-4">
+                {item.description}
+              </p>
             </div>
-            <h3 className="font-semibold text-adesa-50 mb-2 text-xl">
-              {item.sector}
-            </h3>
-            <p className="text-sm text-adesa-300">{item.status}</p>
           </motion.article>
         ))}
       </div>

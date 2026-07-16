@@ -30,7 +30,7 @@ const careersJsonLd = {
 
 export default function CareerPage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={careersJsonLd} />
       <HeroSection />
       <JobListings />

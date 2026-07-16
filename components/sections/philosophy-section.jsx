@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Shield, BarChart3, Users, Building2, ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 
@@ -52,7 +51,7 @@ export default function PhilosophySection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-xs tracking-[0.35em] uppercase text-[var(--color-gold-400)] mb-6">
+          <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-[var(--color-gold-400)]">
             Philosophy
           </p>
 
@@ -60,32 +59,26 @@ export default function PhilosophySection() {
             id="philosophy-section-title"
             className="text-4xl sm:text-5xl font-medium leading-tight"
           >
-            Beyond Short-Term Gains
+            We value staying power over noise.
           </h2>
 
           <p className="mt-8 text-lg text-[var(--color-adesa-200)] leading-relaxed max-w-xl">
-            ADESA HQ exists beyond quarterly pressures and trend cycles. We are
-            designed to build generational systems, businesses that outlast
-            their founders and create compounding value over decades.
+            ADESA HQ is designed for institution building, not opportunistic
+            asset flipping. We back structures that can hold up over time,
+            across cycles, and under pressure.
           </p>
 
           <p className="mt-6 text-lg text-[var(--color-adesa-200)] leading-relaxed max-w-xl">
-            Our philosophy centers on governance that ensures accountability,
-            capital discipline that ensures sustainability, and operational
-            excellence that ensures competitiveness.
+            That means governance that creates accountability, capital
+            decisions that remain disciplined, and operating systems that can
+            support steady, credible growth.
           </p>
 
           <div className="mt-12">
-            <Link href="/about" passHref>
-              <Button
-                as="a"
-                variant="outline"
-                className="border-[var(--color-gold-400)] text-[var(--color-gold-400)] hover:bg-[var(--color-gold-400)] hover:text-[var(--color-adesa-900)] rounded-full px-8"
-              >
-                Learn More About Our Philosophy
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+            <Button href="/about" variant="outline" className="px-8">
+              Learn More About Our Philosophy
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
           </div>
         </motion.div>
 

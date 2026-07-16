@@ -12,14 +12,14 @@ import SubscribeCard from "@/components/sections/SubscribeCard";
 export const metadata = constructMetadata({
   title: "ADESA HQ | Builder-Operator Group in Africa",
   description:
-    "ADESA HQ is a builder-operator group focused on conceiving, launching, governing, and scaling sector-defining African businesses across Africa.",
+    "ADESA HQ is a governance-led holding group that builds and strengthens enduring African businesses across strategic sectors.",
   path: "/", // ensures canonical URL points to homepage
   keywords: ["builder-operator group Africa", "African holding company", "ADESA HQ"],
 });
 
 export default function Home() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <HeroSection />
       <VisionMissionSection />
       <OperatingModelSection />

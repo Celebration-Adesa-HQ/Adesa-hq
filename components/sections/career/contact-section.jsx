@@ -20,7 +20,7 @@ export default function ContactSection() {
       {/* Background glow shapes */}
       <div className="absolute top-[-30%] left-[-20%] w-[600px] h-[600px] rounded-full bg-adesa-700 blur-[180px] opacity-40" />
       <div className="absolute bottom-[-25%] right-[-15%] w-[500px] h-[500px] rounded-full bg-[#FFA205] blur-[140px] opacity-25" />
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('/noise.png')]" />
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.65)_1px,transparent_0)] bg-[size:22px_22px]" />
       <GridLine />
 
       <h2 className="relative z-10 text-center text-3xl sm:text-4xl font-semibold text-adesa-50 mb-12 sm:mb-16">

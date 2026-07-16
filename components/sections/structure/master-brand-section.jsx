@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import GridLine from "@/components/ui/gridLine";
 import Image from "next/image";
-import { ADESA_SOLUTIONS } from "@/config/brand";
+import { ACTIVE_SUBSIDIARIES } from "@/config/brand";
 
 const responsibilities = [
   "Strategic planning and resource allocation",
@@ -96,33 +96,30 @@ export default function MasterBrandSection() {
 
             <div className="w-px h-8 sm:h-12 bg-adesa-600 mx-auto mb-6 sm:mb-8" />
 
-            <figcaption className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full max-w-[480px]">
-              {[
-                {
-                  name: "Adesa Media",
-                  image: "/logo/Adesa-media-logo-white.png",
-                },
-                {
-                  name: "Adesa Energy",
-                  image: "/logo/Adesa-energy-logo.jpg",
-                },
-                {
-                  name: "Adesa Solutions",
-                  image: "/logo/Adesa-solution.jpg",
-                },
-              ].map((sub, idx) => (
+            <figcaption className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-[480px]">
+              {ACTIVE_SUBSIDIARIES.map((sub, idx) => (
                 <div
                   key={idx}
                   className="p-3 sm:p-4 rounded-[10px] sm:rounded-xl border border-gold-400/40 bg-adesa-700 shadow-[0_0_20px_rgba(212,160,23,0.12)] flex flex-col items-center transition-all duration-300"
                 >
                   <div className="relative w-8 h-8 rounded-full">
-                    <Image
-                      src={sub.image}
-                      alt={sub.name}
-                      width={50}
-                      height={50}
-                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain text-gold-400 mb-2"
-                    />
+                    {sub.image ? (
+                      <Image
+                        src={sub.image}
+                        alt={sub.name}
+                        width={50}
+                        height={50}
+                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain text-gold-400 mb-2"
+                      />
+                    ) : (
+                      <span
+                        role="img"
+                        aria-label={`${sub.name} temporary logo`}
+                        className="inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center font-serif text-[10px] sm:text-xs font-semibold tracking-wide text-gold-400"
+                      >
+                        {sub.badge}
+                      </span>
+                    )}
                   </div>
                   <p className="text-xs sm:text-sm text-white font-medium text-center">
                     {sub.name}

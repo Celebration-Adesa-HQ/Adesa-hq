@@ -32,16 +32,16 @@ export default function FinalCTASection() {
             id="cta-section-title"
             className="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.15]"
           >
-            <span className="block">Building Africa&apos;s Future,</span>
+            <span className="block">Looking for a serious</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">
-              One Institution at a Time
+              operating or partnership conversation?
             </span>
           </h2>
 
           <p className="mt-6 sm:mt-8 md:mt-10 text-sm sm:text-base md:text-lg text-adesa-200 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-            ADESA HQ is committed to building businesses that create lasting
-            value for shareholders, employees, partners, and the communities we
-            serve.
+            We work with founders, operators, partners, and stakeholders who
+            value discipline, clarity, and long-term outcomes. If that matches
+            your direction, speak with the team.
           </p>
 
           <div className="mt-10 sm:mt-12 md:mt-14 flex justify-center">
@@ -57,7 +57,7 @@ export default function FinalCTASection() {
                 aria-label="Contact ADESA HQ"
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  Get in Touch
+                  Contact ADESA HQ
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </span>
                 <span className="absolute inset-0 rounded-full border border-gold-300 opacity-40" />

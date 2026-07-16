@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section
-      className="relative pt-32 pb-28 lg:pt-44 lg:pb-36 bg-adesa-900 text-adesa-100 overflow-hidden"
+      className="relative overflow-hidden bg-adesa-950 pt-32 pb-28 lg:pt-44 lg:pb-36 text-adesa-100"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0">
@@ -37,18 +37,15 @@ export default function HeroSection() {
             />
           </div>
 
-          <p className="text-xs tracking-[0.4em] uppercase text-gold-400 mb-10">
+          <p className="mb-10 text-[11px] uppercase tracking-[0.28em] text-gold-300">
             Subsidiaries
           </p>
 
           <h1
             id="hero-heading"
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05]"
+            className="text-5xl font-medium leading-[1.03] tracking-[-0.04em] sm:text-6xl lg:text-7xl"
           >
-            <span className="block text-adesa-50">Our Operating</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-adesa-100 via-adesa-300 to-adesa-400">
-              Companies
-            </span>
+            Operating companies built for focus, scale, and accountability.
           </h1>
 
           <motion.div
@@ -59,9 +56,9 @@ export default function HeroSection() {
           />
 
           <p className="mt-12 text-xl text-adesa-300 leading-relaxed max-w-3xl">
-            Each ADESA HQ subsidiary operates with strategic autonomy while
-            adhering to group-level governance standards and benefiting from
-            shared resources.
+            Each business in the portfolio is shaped around a clear sector
+            mandate while remaining anchored to shared standards for governance,
+            reporting, and long-term capital use.
           </p>
         </motion.div>
       </div>

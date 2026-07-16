@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { Section } from "../ui/section";
 
 const stats = [
-  { value: "4+", label: "Sectors", description: "Active business verticals" },
+  { value: "4", label: "Core sectors", description: "Operating companies already within the group portfolio." },
   {
-    value: "10+",
-    label: "Years",
-    description: "Combined leadership experience",
+    value: "1",
+    label: "Group standard",
+    description: "A consistent governance and reporting discipline across the portfolio.",
   },
-  { value: "100%", label: "African", description: "Focus and commitment" },
-  { value: "∞", label: "Horizon", description: "Generational thinking" },
+  { value: "100%", label: "African focus", description: "Built around local context, long-term relevance, and regional opportunity." },
+  { value: "Long", label: "Time horizon", description: "Capital and operating decisions made with durability in mind." },
 ];
 
 export default function StatsSection() {
@@ -30,7 +30,16 @@ export default function StatsSection() {
       <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#E4E9F2_1px,transparent_1px),linear-gradient(to_bottom,#E4E9F2_1px,transparent_1px)] bg-[size:80px_80px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-28">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="mb-12 max-w-3xl">
+          <p className="mb-4 text-[11px] uppercase tracking-[0.28em] text-gold-300">
+            What defines the group
+          </p>
+          <h2 className="text-4xl font-medium tracking-[-0.03em] text-adesa-50 lg:text-5xl">
+            Scope matters, but discipline matters more.
+          </h2>
+        </div>
+
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <motion.section
               key={stat.label}

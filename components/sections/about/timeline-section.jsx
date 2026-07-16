@@ -40,7 +40,7 @@ const milestones = [
     year: "2025",
     title: "Pan-African Scale",
     description:
-      "Operations across 15+ African markets with 5+ operating subsidiaries",
+      "Operations across 15+ African markets with a growing portfolio of operating subsidiaries",
   },
 ];
 

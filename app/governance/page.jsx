@@ -23,7 +23,7 @@ const governanceJsonLd = buildWebPageJsonLd({
 
 export default function GovernancePage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={governanceJsonLd} />
       <HeroSection />
       <CoreStandardsSection />

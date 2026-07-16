@@ -6,23 +6,23 @@ import { Target, Layers, Shield, TrendingUp } from "lucide-react";
 const modelSteps = [
   {
     icon: Target,
-    title: "Conceive",
-    description: "Identify sector opportunities with structural tailwinds",
+    title: "Select",
+    description: "Focus on sectors where demand, execution, and timing can support durable growth.",
   },
   {
     icon: Layers,
-    title: "Launch",
-    description: "Deploy capital with operational expertise",
+    title: "Build",
+    description: "Pair early capital with operating structure, execution support, and practical systems.",
   },
   {
     icon: Shield,
     title: "Govern",
-    description: "Establish institutional standards and oversight",
+    description: "Install reporting discipline, oversight, and clear decision rights from the start.",
   },
   {
     icon: TrendingUp,
-    title: "Scale",
-    description: "Grow with discipline and long-term focus",
+    title: "Strengthen",
+    description: "Grow with patience, reinvest selectively, and preserve long-term strategic flexibility.",
   },
 ];
 
@@ -41,18 +41,19 @@ export default function OperatingModelSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <header className="max-w-3xl mb-20">
-          <p className="text-xs tracking-[0.4em] uppercase text-[var(--color-adesa-300)] mb-6">
+          <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-[var(--color-gold-300)]">
             Operating Model
           </p>
           <h2
             id="operating-model-heading"
             className="text-4xl sm:text-5xl font-medium leading-tight"
           >
-            Builder-Operator Philosophy
+            How the group builds
           </h2>
           <p className="mt-8 text-lg text-[var(--color-adesa-300)] leading-relaxed">
-            We don't just invest. We conceive, build, and operate businesses
-            with the discipline and patience required for generational success.
+            We do more than allocate capital. ADESA HQ helps shape companies at
+            formation stage and continues to reinforce them through structure,
+            governance, and operating support.
           </p>
         </header>
 
@@ -72,7 +73,7 @@ export default function OperatingModelSection() {
                 }`}
               >
                 <div>
-                  <h3 className="text-2xl font-medium mb-4 text-[var(--color-adesa-50)]">
+                  <h3 className="mb-4 text-2xl font-medium text-[var(--color-adesa-50)]">
                     {item.title}
                   </h3>
                   <p className="text-[var(--color-adesa-300)] leading-relaxed max-w-md">

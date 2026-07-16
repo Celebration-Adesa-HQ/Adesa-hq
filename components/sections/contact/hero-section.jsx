@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section
-      className="relative pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-24 lg:pb-28 bg-adesa-900 text-white overflow-hidden"
+      className="relative overflow-hidden bg-adesa-950 pt-28 pb-20 text-white sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28"
       aria-labelledby="hero-contact-heading"
     >
       {/* Background atmosphere */}
@@ -26,24 +26,23 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h2
-              id="hero-contact-heading"
-              className="text-[10px] sm:text-xs tracking-[0.35em] sm:tracking-[0.4em] uppercase text-adesa-300 mb-6 sm:mb-8"
+            <p
+              className="mb-6 text-[11px] uppercase tracking-[0.28em] text-gold-300 sm:mb-8"
             >
               Contact
-            </h2>
+            </p>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl leading-[1.1]">
-              <span className="block">Let&apos;s Start</span>
-              <span className="block text-transparent bg-clip-text bg-linear-to-r from-white to-adesa-300">
-                a Conversation
-              </span>
+            <h1
+              id="hero-contact-heading"
+              className="text-4xl leading-[1.04] tracking-[-0.04em] sm:text-5xl lg:text-7xl"
+            >
+              Bring us your partnership, media, or group-level inquiry.
             </h1>
 
             <p className="mt-8 sm:mt-10 text-base sm:text-lg lg:text-xl text-adesa-200 leading-relaxed max-w-2xl">
-              Whether you&apos;re exploring partnership opportunities, media
-              inquiries, or general questions about ADESA HQ, we welcome your
-              outreach.
+              We welcome conversations that are strategic, thoughtful, and
+              relevant to the group, whether they concern partnerships, media,
+              operating opportunities, or general engagement.
             </p>
           </motion.div>
 

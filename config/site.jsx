@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "ADESA HQ",
   shortName: "ADESA",
   description:
-    "ADESA HQ is a builder-operator group focused on conceiving, launching, governing, and scaling sector-defining African businesses across Africa.",
+    "ADESA HQ is a governance-led holding group that conceives, launches, and strengthens enduring African businesses across priority sectors.",
   url: "https://www.adesahq.com",
   logo: "/logo/Adesa-HQ.-logo.png",
   ogImage: "/opengraph-image",
@@ -34,11 +34,11 @@ export const siteConfig = {
     address: "2 Isheri Road, Ojudu-Berger, Lagos, Nigeria",
   },
   newsletter: {
-    title: "Weekly Insights",
+    title: "The Adesa Lens",
     description:
-      "Join 5,000+ subscribers receiving our weekly growth insights.",
+      "Follow our perspective on governance, capital allocation, and institution building across African markets.",
     placeholder: "Email address",
-    submitLabel: "Subscribe",
+    submitLabel: "Follow on LinkedIn",
     url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
   },
   verification: {

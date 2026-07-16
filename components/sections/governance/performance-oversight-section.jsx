@@ -52,8 +52,8 @@ const reviewTypes = [
 export default function PerformanceOversightSection() {
   return (
     <Section dark className="relative overflow-hidden bg-adesa-900">
-      <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-adesa-700 rounded-full blur-[120px] opacity-50 animate-[blob_20s_infinite]"></div>
-      <div className="absolute bottom-[-150px] right-[-80px] w-[400px] h-[400px] bg-gold-400 rounded-full blur-[100px] opacity-30 animate-[blob_25s_infinite]"></div>
+      <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-adesa-700 rounded-full blur-[120px] opacity-50 animate-blob-slow-1"></div>
+      <div className="absolute bottom-[-150px] right-[-80px] w-[400px] h-[400px] bg-gold-400 rounded-full blur-[100px] opacity-30 animate-blob-slow-2"></div>
 
       <GridLine />
       <SectionHeader
@@ -103,32 +103,7 @@ export default function PerformanceOversightSection() {
         ))}
       </ul>
 
-      <style jsx>{`
-        @keyframes blob_20s_infinite {
-          0%,
-          100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(30px, -20px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 30px) scale(0.9);
-          }
-        }
-        @keyframes blob_25s_infinite {
-          0%,
-          100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(-25px, 20px) scale(0.95);
-          }
-          66% {
-            transform: translate(20px, -30px) scale(1.05);
-          }
-        }
-      `}</style>
+
     </Section>
   );
 }

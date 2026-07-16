@@ -93,8 +93,7 @@ export default function RootLayout({ children }) {
     <html lang={siteConfig.locale.replace("_", "-")} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-neutral-50 font-sans antialiased",
-        "dark:bg-adesa-900 dark:text-neutral-50",
+          "min-h-screen bg-adesa-950 font-sans text-adesa-100 antialiased",
           inter.variable,
           playfair.variable,
         )}
@@ -103,10 +102,7 @@ export default function RootLayout({ children }) {
         <AppShell>
           <div className="relative flex min-h-screen flex-col">
             <Header />
-            <main role="main" className="flex-1">
-              {children}
-            </main>
-
+            {children}
             <Footer />
           </div>
         </AppShell>

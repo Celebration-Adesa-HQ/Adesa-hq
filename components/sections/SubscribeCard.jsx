@@ -15,31 +15,22 @@ export default function SubscribeCard({
   const { newsletter } = siteConfig;
 
   return (
-    <div
-      className={`
-        w-full
-        max-w-md
-        sm:max-w-lg
-        lg:max-w-xl
-        mx-auto
-        px-4
-        sm:px-6
-        ${className}
-      `}
+    <section
+      className={`mx-auto w-full max-w-4xl px-4 sm:px-6 ${className}`}
+      aria-labelledby="newsletter-title"
     >
+      <div className="rounded-[32px] border border-white/8 bg-white/4 px-6 py-10 text-center shadow-[0_24px_70px_rgba(3,7,18,0.28)] backdrop-blur-xl sm:px-10 sm:py-12">
       <h4
+        id="newsletter-title"
         className="
-          text-base
-          sm:text-lg
-          lg:text-xl
-          font-bold
-          text-[#FFA205]
+          text-[11px]
+          font-medium
+          text-gold-300
           mb-4
           sm:mb-6
           uppercase
-          tracking-widest
+          tracking-[0.28em]
           text-center
-          sm:text-left
         "
       >
         {title || newsletter.title}
@@ -49,11 +40,12 @@ export default function SubscribeCard({
         className="
           text-sm
           sm:text-base
-          text-slate-400
+          max-w-2xl
+          mx-auto
+          text-adesa-300
           mb-6
           sm:mb-8
           text-center
-          sm:text-left
           leading-relaxed
         "
       >
@@ -67,14 +59,16 @@ export default function SubscribeCard({
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className="
-          w-full
-          bg-linear-to-r from-[#FFA205] to-[#FFC107]
-          text-[#151E47]
+          inline-flex
+          min-w-[220px]
+          bg-linear-to-r from-gold-400 to-gold-300
+          text-adesa-950
           font-bold
+          px-8
           py-3
           sm:py-4
-          rounded-xl
-          hover:shadow-lg hover:shadow-orange-500/20
+          rounded-full
+          hover:shadow-lg hover:shadow-gold-500/20
           transition-all duration-300
           flex items-center justify-center gap-2
           text-sm
@@ -84,6 +78,7 @@ export default function SubscribeCard({
         {buttonText}
         {icon && <Send size={18} />}
       </motion.a>
-    </div>
+      </div>
+    </section>
   );
 }

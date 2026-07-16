@@ -18,7 +18,7 @@ const contactJsonLd = buildContactPageJsonLd();
 
 export default function ContactPage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={contactJsonLd} />
       {/* HERO */}
       <HeroSection />

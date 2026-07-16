@@ -33,7 +33,7 @@ const aboutJsonLd = {
 
 export default function AboutPage() {
   return (
-    <main role="main">
+    <main role="main" className="flex-1">
       <PageJsonLd data={aboutJsonLd} />
       <HeroSection />
       <NarrativeSection />

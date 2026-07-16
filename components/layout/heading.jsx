@@ -7,19 +7,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Logo from "../ui/logo";
-import { ADESA_SOLUTIONS } from "@/config/brand";
+import { ACTIVE_SUBSIDIARIES } from "@/config/brand";
 
 const navigation = [
   { name: "About", href: "/about" },
   { name: "Group Structure", href: "/structure" },
   {
     name: "Subsidiaries",
-    href: "/subsidiaries",
-    children: [
-      { name: "Adesa Media", href: "https://www.adesamedia.com/" },
-      { name: "Adesa Energy", href: "https://www.adesaenergy.com/" },
-      { name: ADESA_SOLUTIONS.name, href: ADESA_SOLUTIONS.href },
-    ],
+      href: "/subsidiaries",
+    children: ACTIVE_SUBSIDIARIES.map(({ name, href }) => ({ name, href })),
   },
   { name: "Governance", href: "/governance" },
   { name: "Careers", href: "/careers" },
@@ -43,21 +39,22 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
+    <header className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none sm:top-6">
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
         className={cn(
-          "pointer-events-auto w-[92%] max-w-7xl transition-all duration-500",
+          "pointer-events-auto w-[94%] max-w-7xl transition-all duration-500",
           isScrolled ? "scale-[0.98]" : "scale-100",
         )}
       >
-        <div className="relative rounded-2xl border border-adesa-700/60 bg-adesa-900/80 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+        <div className="adesa-shell-surface relative overflow-hidden rounded-[28px]">
+          <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/90 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white/6 to-transparent" />
 
           <nav
-            className="flex h-20 items-center justify-between px-8"
+            className="flex h-18 items-center justify-between px-5 sm:px-6 lg:h-20 lg:px-8"
             aria-label="Main navigation"
           >
             <Link
@@ -66,9 +63,14 @@ export function Header() {
               aria-label="ADESA HQ Home"
             >
               <Logo />
+              <div className="hidden xl:block">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-adesa-300">
+                  Governance-led group
+                </p>
+              </div>
             </Link>
 
-            <ul className="hidden lg:flex items-center gap-10">
+            <ul className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navigation.map((item) => (
                 <li
                   key={item.name}
@@ -81,11 +83,11 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "flex items-center gap-1 text-sm tracking-wide transition-colors",
+                      "flex items-center gap-1 text-[13px] font-medium tracking-[0.16em] uppercase transition-colors",
                       pathname === item.href ||
                         pathname.startsWith(item.href + "/")
-                        ? "text-adesa-100"
-                        : "text-adesa-300 hover:text-gold-400",
+                        ? "text-adesa-50"
+                        : "text-adesa-300 hover:text-gold-300",
                     )}
                     aria-haspopup={item.children ? "true" : undefined}
                     aria-expanded={
@@ -110,7 +112,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 12 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-0 top-full pt-4 w-56 rounded-xl border border-adesa-700 bg-adesa-800/95 backdrop-blur-xl shadow-2xl"
+                        className="absolute left-0 top-full mt-4 w-64 overflow-hidden rounded-2xl border border-white/10 bg-adesa-900/95 p-2 shadow-[0_24px_60px_rgba(3,7,18,0.48)] backdrop-blur-2xl"
                       >
                         {item.children.map((child) => (
                           <li key={child.name}>
@@ -126,7 +128,7 @@ export function Header() {
                                   ? "noopener noreferrer"
                                   : undefined
                               }
-                              className="block px-5 py-3 text-sm text-adesa-300 hover:text-gold-400 hover:bg-adesa-700/60 transition-colors"
+                              className="block rounded-xl px-4 py-3 text-sm text-adesa-200 transition-colors hover:bg-white/6 hover:text-gold-300"
                             >
                               {child.name}
                             </Link>
@@ -142,14 +144,14 @@ export function Header() {
             <div className="hidden lg:block">
               <Link
                 href="/contact"
-                className="relative inline-flex items-center px-6 py-2.5 text-sm font-medium text-adesa-900 bg-gold-400 rounded-full hover:bg-gold-300 transition-colors"
+                className="inline-flex items-center rounded-full bg-gold-400 px-6 py-2.5 text-sm font-medium text-adesa-950 shadow-[0_16px_32px_rgba(198,150,45,0.22)] transition-colors hover:bg-gold-300"
               >
-                Contact
+                Contact ADESA HQ
               </Link>
             </div>
 
             <button
-              className="lg:hidden text-adesa-100"
+              className="rounded-full border border-white/10 p-2 text-adesa-100 lg:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -169,15 +171,15 @@ export function Header() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25 }}
-                className="lg:hidden overflow-hidden border-t border-adesa-700 bg-adesa-900"
+                className="overflow-hidden border-t border-white/10 bg-adesa-900/96 lg:hidden"
                 aria-label="Mobile navigation"
               >
-                <ul className="px-8 py-6 space-y-4">
+                <ul className="space-y-4 px-6 py-6">
                   {navigation.map((item) => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="block text-base text-adesa-200 hover:text-gold-400 transition-colors"
+                        className="block text-base font-medium text-adesa-200 transition-colors hover:text-gold-300"
                       >
                         {item.name}
                       </Link>
@@ -197,7 +199,7 @@ export function Header() {
                                     ? "noopener noreferrer"
                                     : undefined
                                 }
-                                className="block text-sm text-adesa-400 hover:text-gold-400"
+                                className="block text-sm text-adesa-400 hover:text-gold-300"
                               >
                                 {child.name}
                               </Link>
@@ -211,9 +213,9 @@ export function Header() {
                   <li className="pt-4">
                     <Link
                       href="/contact"
-                      className="block text-center py-3 text-sm font-medium text-adesa-900 bg-gold-400 rounded-full"
+                      className="block rounded-full bg-gold-400 py-3 text-center text-sm font-medium text-adesa-950"
                     >
-                      Contact
+                      Contact ADESA HQ
                     </Link>
                   </li>
                 </ul>

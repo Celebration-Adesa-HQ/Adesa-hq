@@ -10,7 +10,7 @@ export function Section({ children, className, dark = false, id, title }) {
       aria-labelledby={title ? `${id}-title` : undefined}
       className={cn(
         "py-24 md:py-32",
-        dark ? "bg-adesa-900 text-white" : "bg-neutral-50 text-adesa-900",
+        dark ? "bg-adesa-900 text-white" : "bg-adesa-950 text-adesa-100",
         className,
       )}
     >
@@ -46,8 +46,8 @@ export function SectionHeader({
       {eyebrow && (
         <p
           className={cn(
-            "text-sm font-semibold tracking-widest uppercase mb-4",
-            dark ? "text-gold-400" : "text-adesa-600",
+            "mb-4 text-[11px] font-medium uppercase tracking-[0.28em]",
+            dark ? "text-gold-400" : "text-adesa-300",
           )}
         >
           {eyebrow}
@@ -57,8 +57,8 @@ export function SectionHeader({
         <h2
           id={titleId}
           className={cn(
-            "font-serif text-4xl lg:text-5xl font-medium tracking-tight",
-            dark ? "text-white" : "text-adesa-900",
+            "text-4xl font-medium tracking-[-0.03em] lg:text-5xl",
+            dark ? "text-white" : "text-adesa-50",
           )}
         >
           {title}
@@ -67,8 +67,8 @@ export function SectionHeader({
       {description && (
         <p
           className={cn(
-            "mt-6 text-lg leading-relaxed",
-            dark ? "text-adesa-200" : "text-neutral-600",
+            "mt-6 max-w-[62ch] text-lg leading-relaxed",
+            dark ? "text-adesa-200" : "text-adesa-300",
           )}
         >
           {description}

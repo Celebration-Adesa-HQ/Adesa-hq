@@ -100,8 +100,8 @@ export default function OpenGraphImage() {
                 maxWidth: "780px",
               }}
             >
-              Adesa Media, Adesa Energy, and Adesa Solutions under one holding
-              company.
+              Adesa Media, Adesa Energy, Adesa Solutions, and Adesa
+              Distribution under one holding company.
             </p>
           </div>
         </div>
@@ -110,4 +110,3 @@ export default function OpenGraphImage() {
     size,
   );
 }
-

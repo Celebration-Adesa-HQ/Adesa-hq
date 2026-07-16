@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import SubsidiaryCard from "./subsidiaries/subsidiary-card";
-import { ADESA_SOLUTIONS } from "@/config/brand";
+import { ADESA_DISTRIBUTION, ADESA_SOLUTIONS } from "@/config/brand";
 
 export default function SubsidiariesSection() {
   return (
@@ -40,7 +40,7 @@ export default function SubsidiariesSection() {
         </header>
 
         {/* Grid */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div className="mt-12 sm:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           <motion.article
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,6 +91,21 @@ export default function SubsidiariesSection() {
               description={ADESA_SOLUTIONS.description}
               services={ADESA_SOLUTIONS.services}
               href={ADESA_SOLUTIONS.href}
+            />
+          </motion.article>
+
+          <motion.article
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+          >
+            <SubsidiaryCard
+              name={ADESA_DISTRIBUTION.name}
+              description={ADESA_DISTRIBUTION.description}
+              services={ADESA_DISTRIBUTION.services}
+              href={ADESA_DISTRIBUTION.href}
+              external
             />
           </motion.article>
         </div>

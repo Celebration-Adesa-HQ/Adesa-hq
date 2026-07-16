@@ -12,7 +12,7 @@ const fadeInUp = {
 export default function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-32 bg-adesa-900 text-adesa-50"
+      className="relative overflow-hidden bg-adesa-950 pt-32 pb-24 lg:pt-40 lg:pb-32 text-adesa-50"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0">
@@ -21,6 +21,7 @@ export default function HeroSection() {
       </div>
 
       <GridLine />
+      <div className="adesa-noise-texture absolute inset-0 opacity-[0.04]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
@@ -31,27 +32,22 @@ export default function HeroSection() {
         >
           <p
             id="hero-intro"
-            className="text-xs tracking-[0.35em] uppercase text-gold-400 mb-4"
+            className="mb-4 text-[11px] uppercase tracking-[0.28em] text-gold-300"
           >
             About ADESA HQ
           </p>
 
           <h1
             id="hero-heading"
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight"
+            className="text-5xl font-medium leading-[1.03] tracking-[-0.04em] sm:text-6xl lg:text-7xl"
           >
-            <span className="block text-adesa-100">
-              A Builder-Operator Philosophy
-            </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-300">
-              for Generational Impact
-            </span>
+            ADESA HQ was built to create companies with staying power.
           </h1>
 
           <p className="mt-10 text-xl text-adesa-300 leading-relaxed max-w-3xl">
-            ADESA HQ represents a new approach to African enterprise—one rooted
-            in institutional discipline, long-term thinking, and the conviction
-            that great businesses are built to last.
+            Our role is not only to launch ventures but to give them the
+            operating discipline, governance structure, and strategic patience
+            required to last.
           </p>
 
           <hr className="mt-16 w-32 h-[2px] border-none bg-gradient-to-r from-gold-400 to-transparent" />
