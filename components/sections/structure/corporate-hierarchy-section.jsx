@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Section, SectionHeader } from "@/components/ui/section";
-import GridLine from "@/components/ui/gridLine";
 import Image from "next/image";
 import { ACTIVE_SUBSIDIARIES } from "@/config/brand";
 
@@ -31,101 +30,171 @@ export default function CorporateHierarchySection() {
           dark
         />
 
-        <div className="mt-20 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative border border-adesa-700 bg-adesa-800/60 backdrop-blur-xl rounded-xl overflow-hidden"
-          >
-            {/* Holding Core */}
-            <div className="relative px-5 py-10 sm:p-12 text-center border-b border-adesa-700">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-10 sm:h-12 bg-gradient-to-b from-gold-400 to-transparent" />
+        <div className="mt-20 w-full relative">
+          {/* Holding Core (Root Node) */}
+          <div className="flex justify-center mb-16 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative border border-gold-400/20 bg-adesa-800/80 backdrop-blur-xl px-8 py-6 rounded-xl max-w-md w-full text-center z-10 shadow-lg shadow-black/20"
+            >
+              {/* Ambient Glow */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-gold-500/10 to-gold-600/10 rounded-xl blur-md opacity-50" />
+              <div className="relative z-10">
+                <p className="text-[10px] tracking-[0.25em] uppercase text-gold-400 font-semibold mb-2">
+                  Holding Company
+                </p>
+                <h2
+                  id="corporate-hierarchy-title"
+                  className="text-2xl sm:text-3xl font-serif font-medium text-adesa-50"
+                >
+                  ADESA HQ
+                </h2>
+                <p className="text-adesa-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                  Strategic Direction • Governance • Capital Allocation
+                </p>
+              </div>
+            </motion.div>
 
-              <p className="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-adesa-300 mb-3 sm:mb-4">
-                Holding Company
-              </p>
+            {/* Connection Line Down from Holding to Subsidiaries */}
+            <motion.div
+              initial={{ opacity: 0, scaleY: 0 }}
+              whileInView={{ opacity: 1, scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              style={{ originY: 0 }}
+              className="absolute bottom-[-64px] left-1/2 -translate-x-1/2 w-[2px] h-16 bg-gradient-to-b from-gold-400 to-gold-400/60 hidden md:block"
+            />
+          </div>
 
-              <h2
-                id="corporate-hierarchy-title"
-                className="text-xl sm:text-3xl font-serif font-medium text-adesa-50"
-              >
-                ADESA HQ
-              </h2>
-
-              <p className="text-adesa-300 text-xs sm:text-sm mt-3 sm:mt-4 leading-relaxed">
-                Strategic Direction • Governance • Capital Allocation
-              </p>
+          {/* Subsidiaries Layer */}
+          <div className="relative">
+            {/* Desktop Connector Lines (lg and above: 4 columns) */}
+            {/* Horizontal bar */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              style={{ originX: 0.5 }}
+              className="hidden lg:block absolute -top-8 left-[12.5%] right-[12.5%] h-[2px] bg-gold-400/60"
+            />
+            {/* Drop lines to each card center */}
+            <div className="hidden lg:grid grid-cols-4 absolute -top-8 left-0 right-0 pointer-events-none">
+              {[0, 1, 2, 3].map((colIdx) => (
+                <div key={colIdx} className="flex justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, scaleY: 0 }}
+                    whileInView={{ opacity: 1, scaleY: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.6 + colIdx * 0.05 }}
+                    style={{ originY: 0 }}
+                    className="w-[2px] h-8 bg-gold-400/60"
+                  />
+                </div>
+              ))}
             </div>
 
-            {/* Subsidiary Layer */}
-            <div className="px-5 py-10 sm:p-12">
-              <p className="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-adesa-400 mb-8 sm:mb-10 text-center">
-                Operating Subsidiaries
-              </p>
+            {/* Tablet Connector Lines (md:grid-cols-2, but not lg) */}
+            {/* Horizontal bar */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              style={{ originX: 0.5 }}
+              className="hidden md:block lg:hidden absolute -top-8 left-[25%] right-[25%] h-[2px] bg-gold-400/60"
+            />
+            {/* Drop lines for first row */}
+            <div className="hidden md:grid lg:hidden grid-cols-2 absolute -top-8 left-0 right-0 pointer-events-none">
+              {[0, 1].map((colIdx) => (
+                <div key={colIdx} className="flex justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, scaleY: 0 }}
+                    whileInView={{ opacity: 1, scaleY: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.6 + colIdx * 0.1 }}
+                    style={{ originY: 0 }}
+                    className="w-[2px] h-8 bg-gold-400/60"
+                  />
+                </div>
+              ))}
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-8">
-                {subsidiaryCards.map((subsidiary) => (
-                  <article
-                    key={subsidiary.name}
-                    className="group relative border border-adesa-700 bg-adesa-800 p-5 sm:p-8 rounded-lg transition-all duration-500 hover:border-gold-400"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 to-gold-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-lg" />
+            {/* Mobile central line (runs behind the cards down the middle) */}
+            <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-gold-400/40 via-gold-400/20 to-transparent md:hidden z-0" />
 
-                    <div className="relative z-10">
-                      <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-adesa-700 flex items-center justify-center border border-adesa-600 overflow-hidden group-hover:border-gold-400 transition">
-                          {subsidiary.image ? (
-                            <Image
-                              src={subsidiary.image}
-                              alt={`${subsidiary.name} logo`}
-                              fill
-                              className="object-contain p-2"
-                            />
-                          ) : (
-                            <span
-                              role="img"
-                              aria-label={`${subsidiary.name} temporary logo`}
-                              className="font-serif text-sm sm:text-base font-semibold tracking-wide text-gold-400"
-                            >
-                              {subsidiary.badge}
-                            </span>
-                          )}
-                        </div>
-                        <div>
-                          <h3 className="font-medium text-adesa-50 text-sm sm:text-base">
-                            {subsidiary.name}
-                          </h3>
-                          <p className="text-[11px] sm:text-xs text-adesa-400">
-                            {subsidiary.sector}
-                          </p>
-                        </div>
-                      </div>
+            {/* Subsidiary Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 relative z-10">
+              {subsidiaryCards.map((subsidiary, idx) => (
+                <motion.article
+                  key={subsidiary.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="group relative border border-adesa-700/60 bg-adesa-800/80 p-6 sm:p-7 rounded-xl transition-all duration-500 hover:border-gold-400/60 hover:shadow-lg hover:shadow-gold-500/5 flex flex-col h-full justify-between"
+                >
+                  {/* Gradient Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 via-gold-400/2 to-gold-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl" />
 
-                      <p className="text-xs sm:text-sm text-adesa-300">
+                  <div className="relative z-10 flex flex-col h-full">
+                    {/* Logo/Icon Stacked */}
+                    <div className="relative w-12 h-12 bg-adesa-700/40 flex items-center justify-center border border-adesa-600 rounded-lg overflow-hidden group-hover:border-gold-400/60 transition-all duration-300 mb-5 shadow-inner shrink-0">
+                      {subsidiary.image ? (
+                        <Image
+                          src={subsidiary.image}
+                          alt={`${subsidiary.name} logo`}
+                          fill
+                          className="object-contain p-2"
+                        />
+                      ) : (
+                        <span
+                          role="img"
+                          aria-label={`${subsidiary.name} temporary logo`}
+                          className="font-serif text-base font-semibold tracking-wide text-gold-400"
+                        >
+                          {subsidiary.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Title & Sector */}
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="font-serif font-medium text-adesa-50 text-base sm:text-lg group-hover:text-gold-300 transition-colors duration-300">
+                        {subsidiary.name}
+                      </h3>
+                      <p className="text-[11px] sm:text-xs text-gold-400 font-medium mt-1 mb-4 uppercase tracking-wider">
+                        {subsidiary.sector}
+                      </p>
+                      <p className="text-xs sm:text-sm text-adesa-300 leading-relaxed">
                         {subsidiary.description}
                       </p>
-
-                      <a
-                        href={subsidiary.href}
-                        target={subsidiary.isExternal ? "_blank" : undefined}
-                        rel={
-                          subsidiary.isExternal
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        className="mt-4 inline-flex text-xs sm:text-sm text-gold-300 hover:text-gold-400 items-center"
-                      >
-                        View details
-                        <span className="ml-2">→</span>
-                      </a>
                     </div>
-                  </article>
-                ))}
-              </div>
+                  </div>
+
+                  {/* Link at bottom */}
+                  <div className="relative z-10 mt-6 pt-4 border-t border-adesa-700/40 shrink-0">
+                    <a
+                      href={subsidiary.href}
+                      target={subsidiary.isExternal ? "_blank" : undefined}
+                      rel={
+                        subsidiary.isExternal
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="inline-flex text-xs sm:text-sm text-gold-300 hover:text-gold-400 font-semibold items-center transition-colors duration-200"
+                    >
+                      View details
+                      <span className="ml-2 group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                    </a>
+                  </div>
+                </motion.article>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </Section>
