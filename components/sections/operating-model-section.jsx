@@ -1,103 +1,98 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Layers, Shield, TrendingUp } from "lucide-react";
+import { Target, Layers, Shield, TrendingUp, Sparkles } from "lucide-react";
 
 const modelSteps = [
   {
+    step: "01",
     icon: Target,
-    title: "Select",
-    description: "Focus on sectors where demand, execution, and timing can support durable growth.",
+    title: "Select & Anchor",
+    description: "Target priority sectors where structural African demand, execution capacity, and regulatory timing support durable generational growth.",
   },
   {
+    step: "02",
     icon: Layers,
-    title: "Build",
-    description: "Pair early capital with operating structure, execution support, and practical systems.",
+    title: "Engineer & Build",
+    description: "Pair patient capital with operational systems, talent infrastructure, and institutional-grade management frameworks from day zero.",
   },
   {
+    step: "03",
     icon: Shield,
-    title: "Govern",
-    description: "Install reporting discipline, oversight, and clear decision rights from the start.",
+    title: "Govern & Oversee",
+    description: "Embed independent oversight, auditable reporting discipline, and unambiguous decision rights across operating boards.",
   },
   {
+    step: "04",
     icon: TrendingUp,
-    title: "Strengthen",
-    description: "Grow with patience, reinvest selectively, and preserve long-term strategic flexibility.",
+    title: "Scale & Compound",
+    description: "Compound capital responsibly, reinvest in adjacent synergies, and build generational institutions that stand the test of time.",
   },
 ];
 
 export default function OperatingModelSection() {
   return (
     <section
-      className="relative py-32 bg-[var(--color-adesa-900)] text-[var(--color-adesa-100)] overflow-hidden"
+      className="relative py-24 sm:py-32 bg-adesa-950 text-adesa-100 overflow-hidden border-t border-white/5"
       aria-labelledby="operating-model-heading"
     >
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[var(--color-adesa-700)] opacity-30 blur-[180px] rounded-full" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[var(--color-gold-500)] opacity-10 blur-[160px] rounded-full" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-adesa-800 opacity-35 blur-[200px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-gold-500 opacity-10 blur-[180px] rounded-full" />
       </div>
 
-      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#E4E9F2_1px,transparent_1px),linear-gradient(to_bottom,#E4E9F2_1px,transparent_1px)] bg-[size:80px_80px]" />
-
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <header className="max-w-3xl mb-20">
-          <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-[var(--color-gold-300)]">
-            Operating Model
+        <header className="max-w-3xl mb-16 sm:mb-24">
+          <p className="mb-4 text-[11px] uppercase tracking-[0.28em] text-gold-400 font-semibold">
+            Builder-Operator Model
           </p>
           <h2
             id="operating-model-heading"
-            className="text-4xl sm:text-5xl font-medium leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight"
           >
-            How the group builds
+            How ADESA HQ <span className="adesa-gold-gradient-text font-serif">constructs value</span>
           </h2>
-          <p className="mt-8 text-lg text-[var(--color-adesa-300)] leading-relaxed">
-            We do more than allocate capital. ADESA HQ helps shape companies at
-            formation stage and continues to reinforce them through structure,
-            governance, and operating support.
+          <p className="mt-6 text-base sm:text-lg text-adesa-300 leading-relaxed">
+            We are operators, not passive allocators. We actively architect subsidiaries from formation
+            through scaling, embedding institutional standards at every phase of growth.
           </p>
         </header>
 
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 h-full w-[1px] bg-gradient-to-b from-transparent via-[var(--color-gold-400)] to-transparent opacity-40 hidden lg:block" />
-
-          <ul className="space-y-20">
-            {modelSteps.map((item, index) => (
-              <motion.li
-                key={item.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className={`relative grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 0 ? "" : "lg:[&>div:first-child]:order-2"
-                }`}
-              >
-                <div>
-                  <h3 className="mb-4 text-2xl font-medium text-[var(--color-adesa-50)]">
-                    {item.title}
-                  </h3>
-                  <p className="text-[var(--color-adesa-300)] leading-relaxed max-w-md">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="relative flex justify-center">
-                  <div className="relative w-24 h-24 flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-2xl bg-[var(--color-adesa-800)] border border-[var(--color-adesa-600)] backdrop-blur-xl shadow-[0_0_60px_rgba(184,134,11,0.15)]" />
-                    <motion.div
-                      animate={{ scale: [1, 1.15, 1] }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                      className="absolute inset-[-10px] rounded-2xl border border-[var(--color-gold-400)] opacity-30"
-                    />
-                    <item.icon
-                      className="relative w-10 h-10 text-[var(--color-gold-400)]"
-                      aria-hidden="true"
-                    />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {modelSteps.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.12 }}
+              className="group relative p-6 sm:p-8 rounded-[26px] bg-gradient-to-b from-white/6 to-white/2 border border-white/8 hover:border-gold-400/40 hover:bg-white/8 transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-gold-400/50 group-hover:bg-gold-500/10 transition-colors">
+                    <item.icon className="w-6 h-6 text-gold-400" />
                   </div>
+                  <span className="font-serif text-2xl font-bold text-white/20 group-hover:text-gold-400/60 transition-colors">
+                    {item.step}
+                  </span>
                 </div>
-              </motion.li>
-            ))}
-          </ul>
+
+                <h3 className="text-xl font-medium text-white mb-3 group-hover:text-gold-300 transition-colors">
+                  {item.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-adesa-300 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-white/5 flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-gold-400/70">
+                <Sparkles className="w-3 h-3" />
+                <span>Phase {item.step}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

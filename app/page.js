@@ -3,6 +3,7 @@ import VisionMissionSection from "@/components/sections/vision-mission-section";
 import OperatingModelSection from "@/components/sections/operating-model-section";
 import StatsSection from "@/components/sections/stats-section";
 import PhilosophySection from "@/components/sections/philosophy-section";
+import BrochureShowcaseSection from "@/components/sections/brochure-showcase-section";
 import SubsidiariesSection from "@/components/sections/subsidiaries-section";
 import GovernanceCTASection from "@/components/sections/governance-cta-section";
 import FinalCTASection from "@/components/sections/final-cta-section";
@@ -13,14 +14,21 @@ export const metadata = constructMetadata({
   title: "ADESA HQ | Builder-Operator Group in Africa",
   description:
     "ADESA HQ is a governance-led holding group that builds and strengthens enduring African businesses across strategic sectors.",
-  path: "/", // ensures canonical URL points to homepage
-  keywords: ["builder-operator group Africa", "African holding company", "ADESA HQ"],
+  path: "/",
+  keywords: [
+    "builder-operator group Africa",
+    "African holding company",
+    "ADESA HQ",
+    "Legacy in Motion",
+    "corporate governance Africa",
+  ],
 });
 
 export default function Home() {
   return (
     <main role="main" className="flex-1">
       <HeroSection />
+      <BrochureShowcaseSection />
       <VisionMissionSection />
       <OperatingModelSection />
       <StatsSection />
@@ -29,19 +37,7 @@ export default function Home() {
       <GovernanceCTASection />
       <SubscribeCard
         buttonText="Subscribe on LinkedIn"
-        className="
-    w-full
-    px-4
-    sm:px-8
-    lg:px-16
-    py-12
-    sm:py-16
-    lg:py-24
-    flex
-    flex-col
-    items-center
-    justify-center
-  "
+        className="w-full"
       />
       <FinalCTASection />
     </main>

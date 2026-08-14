@@ -7,188 +7,145 @@ import {
   Twitter,
   Instagram,
   Linkedin,
+  Clock,
+  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Logo from "@/components/ui/logo";
 import { ADESA_INSTAGRAM_URL } from "@/config/brand";
+import { siteConfig } from "@/config/site";
 
 export default function LeftPanel() {
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden text-white px-4 sm:px-6 lg:px-16 py-20 sm:py-28 lg:py-32"
+      className="relative flex items-center overflow-hidden text-white px-4 sm:px-6 lg:px-12 py-16 sm:py-24"
       aria-labelledby="contact-heading"
     >
-      <div className="relative z-10 max-w-5xl mx-auto space-y-10 sm:space-y-14 lg:space-y-16">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="space-y-3"
-        >
-          <p className="text-xs sm:text-sm tracking-widest uppercase text-adesa-400">
-            Get in Touch
-          </p>
-          <h2
-            id="contact-heading"
-            className="font-serif text-2xl sm:text-3xl lg:text-4xl text-adesa-50"
-          >
-            We're Here to Help
-          </h2>
-        </motion.div>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="text-sm sm:text-base lg:text-lg text-neutral-200 leading-relaxed max-w-xl"
-        >
-          ADESA HQ maintains open communication with stakeholders, partners, and
-          those interested in learning more about our approach to building
-          institutional businesses across Africa.
-        </motion.p>
-
-        {/* Contact Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="space-y-8 sm:space-y-10"
-        >
-          {/* Email */}
-          <ContactInfoCard
-            Icon={Mail}
-            label="Email"
-            value="info@adesahq.com"
-            href="mailto:info@adesahq.com"
-          />
-
-          {/* Location */}
-          <ContactInfoCard
-            Icon={MapPin}
-            label="Location"
-            value="2 Isheri Road, Ojudu-Berger, Lagos"
-            extraInfo="Operating across Africa"
-          />
-        </motion.div>
-
-        {/* Inquiry Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="relative p-6 sm:p-8 lg:p-10 bg-adesa-800 rounded-2xl sm:rounded-3xl border border-adesa-700 shadow-[0_0_60px_rgba(184,196,217,0.15)]"
-        >
-          <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-adesa-400 to-gold-400 rounded-t-full" />
-          <h3 className="text-adesa-50 text-base sm:text-lg font-medium mb-4 sm:mb-6">
-            Inquiry Types
-          </h3>
-
-          <ul className="space-y-3 sm:space-y-4">
-            {[
-              "Partnership & Investment Inquiries",
-              "Media & Press Relations",
-              "Subsidiary Services",
-              "General Information",
-            ].map((item) => (
-              <li
-                key={item}
-                className="flex items-start text-adesa-300 text-sm sm:text-base"
-              >
-                <span className="w-2 h-2 bg-gold-400 mt-2 mr-3 rounded-full flex-shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-
-        {/* Social Media Section */}
+      <div className="relative z-10 max-w-2xl mx-auto space-y-10 sm:space-y-12">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="space-y-6 sm:space-y-8"
+          transition={{ duration: 0.8 }}
+          className="space-y-4"
         >
-          <h3 className="text-adesa-50 text-xl sm:text-2xl font-medium text-center">
-            Follow Us
-          </h3>
+          <div className="flex items-center gap-3">
+            <Logo variant="secondary" width={48} height={48} />
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-gold-500/10 px-3 py-1 backdrop-blur-md">
+              <Sparkles className="h-3 w-3 text-gold-400" />
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-gold-300">
+                Institutional Access
+              </p>
+            </div>
+          </div>
 
-          <div className="flex justify-center gap-8">
-            {/* Facebook */}
+          <h2
+            id="contact-heading"
+            className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight"
+          >
+            Direct Inquiries to <span className="adesa-gold-gradient-text">ADESA HQ</span>
+          </h2>
+
+          <p className="text-sm sm:text-base text-adesa-200 leading-relaxed">
+            ADESA HQ maintains open channels with strategic partners, founders, co-investors, and institutions aligned with our long-duration mandate across African markets.
+          </p>
+        </motion.div>
+
+        {/* Contact Info Cards */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="space-y-4"
+        >
+          <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-md">
+            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+              <Mail className="h-4 w-4 text-gold-400" />
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-adesa-400 font-semibold">General & Institutional Inquiries</p>
+              <a href={`mailto:${siteConfig.contact.email}`} className="text-sm sm:text-base font-medium text-white hover:text-gold-300 transition-colors">
+                {siteConfig.contact.email}
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-md">
+            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+              <MapPin className="h-4 w-4 text-gold-400" />
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-adesa-400 font-semibold">Headquarters</p>
+              <p className="text-sm sm:text-base font-medium text-white">
+                {siteConfig.contact.address}
+              </p>
+              <p className="text-xs text-adesa-400 mt-0.5">Operating Across African Markets</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-md">
+            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+              <Clock className="h-4 w-4 text-gold-400" />
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-adesa-400 font-semibold">Response Window</p>
+              <p className="text-xs sm:text-sm text-adesa-200">
+                Executive team reviews inquiries within 2–3 business days.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Social channels */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="pt-4 border-t border-white/8 flex items-center justify-between"
+        >
+          <span className="text-xs uppercase tracking-wider text-adesa-400 font-semibold">
+            Group Channels
+          </span>
+          <div className="flex items-center gap-4">
             <a
               href="https://www.facebook.com/profile.php?id=61551745417738&mibextid=LQQJ4d"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adesa-300 hover:text-gold-400 transition-colors"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-adesa-300 hover:text-gold-400 hover:border-gold-400/40 transition-colors"
+              aria-label="Facebook"
             >
-              <Facebook className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+              <Facebook className="w-4 h-4" />
             </a>
-
-            {/* Twitter */}
             <a
               href="https://x.com/adesagroup"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adesa-300 hover:text-gold-400 transition-colors"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-adesa-300 hover:text-gold-400 hover:border-gold-400/40 transition-colors"
+              aria-label="Twitter / X"
             >
-              <Twitter className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+              <Twitter className="w-4 h-4" />
             </a>
-
-            {/* Instagram */}
             <a
               href={ADESA_INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adesa-300 hover:text-gold-400 transition-colors"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-adesa-300 hover:text-gold-400 hover:border-gold-400/40 transition-colors"
+              aria-label="Instagram"
             >
-              <Instagram className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+              <Instagram className="w-4 h-4" />
             </a>
-
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/company/adesa-hq/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adesa-300 hover:text-gold-400 transition-colors"
+              className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-adesa-300 hover:text-gold-400 hover:border-gold-400/40 transition-colors"
+              aria-label="LinkedIn"
             >
-              <Linkedin className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400" />
+              <Linkedin className="w-4 h-4" />
             </a>
           </div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-// Contact Info Card Component
-function ContactInfoCard({ Icon, label, value, href, extraInfo }) {
-  return (
-    <div className="group flex items-start gap-4 sm:gap-6">
-      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-adesa-800 border border-adesa-600 flex items-center justify-center rounded-lg transition-all group-hover:border-gold-400">
-        <Icon className="text-gold-400 w-5 h-5 sm:w-6 sm:h-6" />
-      </div>
-      <div>
-        <h3 className="text-adesa-50 text-sm sm:text-base font-medium mb-1">
-          {label}
-        </h3>
-        <address className="text-adesa-300 not-italic text-sm sm:text-base break-all">
-          {href ? (
-            <a
-              href={href}
-              className="hover:text-gold-400 transition-colors duration-300"
-            >
-              {value}
-            </a>
-          ) : (
-            value
-          )}
-          {extraInfo && (
-            <p className="text-adesa-400 text-xs sm:text-sm mt-1">
-              {extraInfo}
-            </p>
-          )}
-        </address>
-      </div>
-    </div>
   );
 }

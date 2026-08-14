@@ -4,7 +4,8 @@ export const siteConfig = {
   description:
     "ADESA HQ is a governance-led holding group that conceives, launches, and strengthens enduring African businesses across priority sectors.",
   url: "https://www.adesahq.com",
-  logo: "/logo/Adesa-HQ.-logo.png",
+  logo: "/Adesa HQ new look secondary.png",
+  logoFull: "/Adesa HQ new look.png",
   ogImage: "/opengraph-image",
   twitterImage: "/opengraph-image",
   locale: "en_NG",

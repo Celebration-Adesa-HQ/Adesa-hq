@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, TrendingUp } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Logo from "../ui/logo";
@@ -13,80 +13,98 @@ const heroSubsidiaries = [
     name: "Adesa Energy",
     image: "/logo/Adesa-energy-logo.jpg",
     alt: "Adesa Energy Logo",
-    width: 40,
-    height: 40,
-    className: "w-20 h-12 sm:w-16 sm:h-16 absolute",
+    badge: "AE",
+    sector: "Renewable Infrastructure",
   },
   {
     name: "Adesa Media",
     image: "/logo/Adesa-media-logo-white.png",
     alt: "Adesa Media Logo",
-    width: 80,
-    height: 40,
-    className: "w-12 h-8 sm:w-20 sm:h-10 absolute",
+    badge: "AM",
+    sector: "Strategic Communications",
   },
   {
     name: ADESA_SOLUTIONS.name,
     image: ADESA_SOLUTIONS.image,
     alt: `${ADESA_SOLUTIONS.name} Logo`,
-    width: 64,
-    height: 64,
-    className: "w-12 h-12 sm:w-16 sm:h-16 object-contain",
+    badge: "AS",
+    sector: "Operational Systems",
   },
   {
     name: ADESA_DISTRIBUTION.name,
     image: ADESA_DISTRIBUTION.image,
     alt: `${ADESA_DISTRIBUTION.name} Logo`,
-    width: 64,
-    height: 64,
-    className: "w-12 h-12 sm:w-16 sm:h-16 object-contain",
+    badge: "AD",
+    sector: "Market Access & Supply",
   },
 ];
 
 export default function HeroSection() {
   return (
     <section
-      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-adesa-950 text-white"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-adesa-950 text-white pt-24 pb-16 lg:py-32"
       aria-label="Hero Section - ADESA HQ"
     >
-      <div className="absolute inset-0">
-        <div className="absolute top-[-18%] left-[-8%] h-[760px] w-[760px] rounded-full bg-adesa-700 blur-[170px] opacity-55" />
-        <div className="absolute bottom-[-22%] right-[-8%] h-[640px] w-[640px] rounded-full bg-gold-500 blur-[150px] opacity-16" />
+      {/* Ambient background glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-15%] left-[-10%] h-[750px] w-[750px] rounded-full bg-adesa-700 blur-[180px] opacity-45" />
+        <div className="absolute bottom-[-18%] right-[-8%] h-[680px] w-[680px] rounded-full bg-gold-500 blur-[180px] opacity-15" />
         <div className="adesa-grid-texture absolute inset-0 opacity-[0.55]" />
-        <div className="adesa-noise-texture absolute inset-0 opacity-[0.04]" />
+        <div className="adesa-noise-texture absolute inset-0 opacity-[0.03]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 lg:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-                {/* Left Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-xs tracking-[0.4em] uppercase text-white/50 mb-8">
-              Multi-Sector Holding Group • Africa
-            </p>
+            {/* Pill tag */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-gold-500/10 px-3.5 py-1.5 mb-8 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-gold-400 animate-pulse" />
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold-300">
+                Legacy in Motion • African Holding Group
+              </p>
+            </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05]">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.08]">
               <span className="block">Building</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">
+              <span className="block adesa-gold-gradient-text font-semibold">
                 Sector-Defining
               </span>
               <span className="block">African Businesses</span>
             </h1>
 
-            <p className="mt-10 text-lg text-white/70 max-w-xl leading-relaxed">
-              ADESA HQ is a builder–operator group focused on conceiving,
-              launching, governing, and scaling businesses designed for
-              generational impact.
+            <p className="mt-8 text-base sm:text-lg text-adesa-200 max-w-xl leading-relaxed">
+              ADESA HQ is a governance-led builder–operator group focused on conceiving,
+              launching, governing, and compounding businesses designed for generational
+              durability across Africa.
             </p>
 
-            <div className="mt-12 flex flex-col sm:flex-row gap-6">
+            {/* Quick stats pills */}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg">
+              <div className="rounded-xl border border-white/8 bg-white/3 p-3 backdrop-blur-md">
+                <p className="text-xs uppercase tracking-wider text-adesa-400">Governance</p>
+                <p className="text-sm font-semibold text-gold-300 mt-0.5">First Principles</p>
+              </div>
+              <div className="rounded-xl border border-white/8 bg-white/3 p-3 backdrop-blur-md">
+                <p className="text-xs uppercase tracking-wider text-adesa-400">Horizon</p>
+                <p className="text-sm font-semibold text-gold-300 mt-0.5">Long Duration</p>
+              </div>
+              <div className="rounded-xl border border-white/8 bg-white/3 p-3 backdrop-blur-md col-span-2 sm:col-span-1">
+                <p className="text-xs uppercase tracking-wider text-adesa-400">Geography</p>
+                <p className="text-sm font-semibold text-gold-300 mt-0.5">Pan-Africa</p>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Button
                 href="/about"
                 size="lg"
-                className="bg-white text-black hover:bg-white/90 rounded-full px-8"
+                className="bg-linear-to-r from-gold-400 to-gold-300 text-adesa-950 font-semibold hover:shadow-[0_10px_30px_rgba(212,162,52,0.3)] rounded-full px-8"
                 role="link"
                 aria-label="Discover Our Approach"
               >
@@ -98,7 +116,7 @@ export default function HeroSection() {
                 href="/structure"
                 variant="outline"
                 size="lg"
-                className="border-white/30 text-white hover:bg-white/10 rounded-full px-8"
+                className="border-white/20 text-adesa-100 hover:border-gold-400 hover:text-gold-300 rounded-full px-8 backdrop-blur-sm"
                 role="link"
                 aria-label="Group Structure"
               >
@@ -107,65 +125,76 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
+          {/* Right Visual Core */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.2 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="relative flex items-center justify-center w-full"
           >
-            <div className="relative aspect-square w-[92%] max-w-[460px]">
-              <div className="absolute inset-0 rounded-[34px] border border-white/10 bg-white/5 shadow-[0_0_120px_rgba(198,150,45,0.14)] backdrop-blur-2xl" />
-
+            <div className="relative aspect-square w-full max-w-[460px] p-6 sm:p-8">
+              {/* Glass Background card */}
+              <div className="absolute inset-0 rounded-[36px] border border-white/10 bg-gradient-to-b from-white/6 to-white/1 shadow-[0_24px_80px_rgba(0,0,0,0.6)] backdrop-blur-2xl" />
+              
+              {/* Ambient revolving rings */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                className="absolute inset-[-18px] rounded-[44px] border border-white/10 sm:inset-[-28px]"
+                transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
+                className="absolute inset-[-15px] sm:inset-[-22px] rounded-[48px] border border-gold-400/20 pointer-events-none"
               />
-
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-                className="absolute inset-[-8px] rounded-[38px] border border-white/5 sm:inset-[-12px]"
+                transition={{ repeat: Infinity, duration: 45, ease: "linear" }}
+                className="absolute inset-[-6px] sm:inset-[-10px] rounded-[40px] border border-white/5 pointer-events-none"
               />
 
-              <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-8 text-center">
-                <div className="flex flex-col items-center">
-                  <Logo aria-label="Adesa HQ Logo" />
-                  <p className="text-sm font-medium tracking-wide sm:text-xl">
-                    Adesa HQ
+              {/* Core Content */}
+              <div className="relative z-10 h-full flex flex-col items-center justify-between text-center">
+                {/* Master Badge */}
+                <div className="flex flex-col items-center pt-2">
+                  <div className="p-1 rounded-2xl bg-white/5 border border-gold-400/30 shadow-[0_0_30px_rgba(212,162,52,0.2)]">
+                    <Logo variant="secondary" width={58} height={58} priority />
+                  </div>
+                  <h2 className="mt-3 font-serif text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    ADESA HQ
+                  </h2>
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-gold-400 font-semibold">
+                    Holding Group Architecture
                   </p>
                 </div>
 
-                <div className="w-px h-8 sm:h-10 bg-white/20 my-2 sm:my-4" />
-
-                <div className="relative w-full flex justify-center mb-4 sm:mb-6">
-                  <div className="absolute top-1/2 w-[70%] h-px bg-white/20" />
+                {/* Connecting divider */}
+                <div className="w-full flex items-center justify-center my-4">
+                  <div className="h-px w-24 bg-gradient-to-r from-transparent via-gold-400/50 to-transparent" />
                 </div>
 
-                <div className="grid w-full max-w-[330px] grid-cols-2 gap-4 sm:gap-6">
+                {/* 4 Subsidiaries 2x2 grid */}
+                <div className="grid w-full grid-cols-2 gap-3 sm:gap-4 pb-2">
                   {heroSubsidiaries.map((subsidiary) => (
                     <div
                       key={subsidiary.name}
-                      className="flex flex-col items-center"
+                      className="group relative flex flex-col items-center rounded-2xl border border-white/8 bg-white/4 p-3 transition-all duration-300 hover:border-gold-400/50 hover:bg-white/8 hover:shadow-[0_8px_24px_rgba(212,162,52,0.12)]"
                     >
-                      <div className="relative w-12 h-12 sm:w-16 sm:h-16 overflow-hidden rounded-2xl bg-white/10 flex items-center justify-center mb-2 sm:mb-3">
+                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl bg-white/10 flex items-center justify-center mb-2 border border-white/10 group-hover:border-gold-400/40">
                         {subsidiary.image ? (
                           <Image
                             src={subsidiary.image}
                             alt={subsidiary.alt}
-                            width={subsidiary.width}
-                            height={subsidiary.height}
-                            loading="lazy"
-                            className={subsidiary.className}
+                            width={40}
+                            height={40}
+                            className="object-contain p-1"
                           />
                         ) : (
-                          <span className="font-serif text-sm sm:text-lg font-semibold tracking-[0.18em] text-gold-400">
+                          <span className="font-serif text-sm font-semibold tracking-wide text-gold-400">
                             {subsidiary.badge}
                           </span>
                         )}
                       </div>
-                      <p className="text-xs sm:text-sm text-white/60 font-medium text-center">
+                      <p className="text-xs font-medium text-white group-hover:text-gold-300 transition-colors text-center">
                         {subsidiary.name}
+                      </p>
+                      <p className="text-[10px] text-adesa-400 text-center line-clamp-1">
+                        {subsidiary.sector}
                       </p>
                     </div>
                   ))}
