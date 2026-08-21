@@ -2,12 +2,7 @@ import { siteConfig } from "@/config/site";
 
 export default function robots() {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: "/private/",
-    },
-    host: siteConfig.url,
+    rules: [{ userAgent: "*", allow: "/" }],
     sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }
