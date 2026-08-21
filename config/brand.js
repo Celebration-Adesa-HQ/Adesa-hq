@@ -7,6 +7,7 @@ export const ADESA_MEDIA = {
   description:
     "A full-spectrum media and creative services company delivering strategic communications, brand development, and content production for leading organizations across Africa.",
   href: "https://www.adesamedia.com/",
+  careerHref: "https://www.adesamedia.com/careers",
   image: "/logo/Adesa-media-logo-white.png",
   badge: "AM",
   services: [
@@ -29,6 +30,7 @@ export const ADESA_ENERGY = {
   description:
     "Focused on renewable power solutions and critical infrastructure development to support sustainable growth across African markets.",
   href: "https://www.adesaenergy.com/",
+  careerHref: "https://www.adesaenergy.com/careers",
   image: "/logo/Adesa-energy-logo.jpg",
   badge: "AE",
   services: [
@@ -103,3 +105,5 @@ export const ACTIVE_SUBSIDIARIES = [
     ...ADESA_DISTRIBUTION,
   },
 ];
+
+export const CAREER_SUBSIDIARIES = [ADESA_MEDIA, ADESA_ENERGY];

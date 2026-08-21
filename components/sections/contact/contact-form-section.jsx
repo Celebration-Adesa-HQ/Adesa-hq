@@ -207,7 +207,6 @@ export default function ContactFormSection() {
               <option value="subsidiary" className="bg-adesa-950">Subsidiary Operating Services</option>
               <option value="governance" className="bg-adesa-950">Governance Advisory & Institutional Inquiry</option>
               <option value="press" className="bg-adesa-950">Media & Corporate Communications</option>
-              <option value="careers" className="bg-adesa-950">Executive & Operating Careers</option>
             </select>
           </div>
 

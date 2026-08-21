@@ -3,28 +3,39 @@ import CareerEditorialSections from "@/components/sections/career/editorial-sect
 import { constructMetadata } from "@/lib/seo";
 import PageJsonLd from "@/components/seo/page-json-ld";
 import { siteConfig } from "@/config/site";
+import { CAREER_SUBSIDIARIES } from "@/config/brand";
 
 export const metadata = constructMetadata({
-  title: "Careers | Join ADESA HQ and Our Operating Companies",
+  title: "Careers Across ADESA Operating Companies | ADESA HQ",
   description:
-    "Learn how ADESA HQ approaches operating culture, responsibility, and long-term institution building across its group.",
+    "Find career opportunities at eligible ADESA operating companies and continue to each subsidiary's website to review roles and apply.",
   path: "/careers", // canonical URL for the careers page
-  keywords: ["careers", "jobs in Africa", "ADESA HQ careers"],
+  keywords: [
+    "ADESA careers",
+    "Adesa Media careers",
+    "Adesa Energy careers",
+    "jobs in Africa",
+  ],
 });
 
 const careersJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Careers at ADESA HQ",
+  name: "Careers across ADESA operating companies",
   url: `${siteConfig.url}/careers`,
   description:
-    "Learn how ADESA HQ approaches operating culture, responsibility, and long-term institution building across its group.",
+    "A directory of career opportunities managed by eligible ADESA operating companies.",
   isPartOf: {
     "@id": `${siteConfig.url}#website`,
   },
   about: {
     "@id": `${siteConfig.url}#organization`,
   },
+  hasPart: CAREER_SUBSIDIARIES.map((company) => ({
+    "@type": "WebPage",
+    name: `${company.name} careers`,
+    url: company.careerHref,
+  })),
 };
 
 export default function CareerPage() {

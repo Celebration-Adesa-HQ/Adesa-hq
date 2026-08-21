@@ -92,7 +92,7 @@ test("inner routes expose distinct editorial landmarks", async ({ page }) => {
     ["/structure", "One governance core, four operating companies."],
     ["/governance", "Standards that apply before performance is celebrated."],
     ["/subsidiaries", "Distinct companies. One institutional standard."],
-    ["/careers", "No verified vacancies are being published here today."],
+    ["/careers", "Choose where you want to build."],
   ];
 
   for (const [route, heading] of expectations) {
@@ -101,11 +101,28 @@ test("inner routes expose distinct editorial landmarks", async ({ page }) => {
   }
 });
 
-test("careers does not publish dormant roles", async ({ page }) => {
+test("careers routes applicants to eligible operating companies", async ({ page }) => {
   test.skip(page.viewportSize().width !== 390, "Representative content check");
   await page.goto("/careers", { waitUntil: "domcontentloaded" });
-  await expect(page.getByText("Energy Analyst", { exact: true })).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Send a talent introduction" })).toHaveAttribute("href", /career@adesahq\.com/);
+  const main = page.getByRole("main");
+  const careerLinks = main.getByRole("link", { name: /^View careers at Adesa/ });
+
+  await expect(careerLinks).toHaveCount(2);
+  await expect(main.getByRole("link", { name: "View careers at Adesa Media" })).toHaveAttribute("href", "https://www.adesamedia.com/careers");
+  await expect(main.getByRole("link", { name: "View careers at Adesa Energy" })).toHaveAttribute("href", "https://www.adesaenergy.com/careers");
+
+  for (const link of await careerLinks.all()) {
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", /noopener/);
+  }
+
+  await expect(main.getByText("Adesa Solutions", { exact: true })).toHaveCount(0);
+  await expect(main.getByText("Adesa Distribution", { exact: true })).toHaveCount(0);
+  await expect(main.locator('a[href^="mailto:career@"]')).toHaveCount(0);
+  await expect(main.getByText("Energy Analyst", { exact: true })).toHaveCount(0);
+
+  await page.goto("/contact", { waitUntil: "domcontentloaded" });
+  await expect(page.locator('option[value="careers"]')).toHaveCount(0);
 });
 
 test("portfolio dossiers retain subsidiary destinations", async ({ page }) => {
