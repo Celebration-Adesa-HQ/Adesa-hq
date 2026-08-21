@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +34,7 @@ export default function Logo({
         priority={priority}
         alt="ADESA HQ Logo"
         className={cn(
-          "object-contain transition-all duration-300",
+          "object-contain transition-[opacity,transform] duration-300",
           isPrimary ? "h-auto w-auto max-h-12" : "h-10 w-10 sm:h-11 sm:w-11"
         )}
       />

@@ -19,11 +19,15 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/x-icon",
       },
       {
-        src: "/Adesa HQ new look secondary.png",
+        src: "/icons/adesa-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/icons/adesa-512.png",
         sizes: "512x512",
         type: "image/png",
       },
     ],
   };
 }
-

@@ -1,7 +1,5 @@
 import HeroSection from "@/components/sections/subsidiaries/hero-section";
-import ActiveSubsidiariesSection from "@/components/sections/subsidiaries/active-subsidiaries-section";
-import PipelineSection from "@/components/sections/subsidiaries/pipeline-section";
-import CTASection from "@/components/sections/subsidiaries/cta-section";
+import SubsidiariesEditorialSections from "@/components/sections/subsidiaries/editorial-sections";
 import { constructMetadata } from "@/lib/seo";
 import PageJsonLd from "@/components/seo/page-json-ld";
 import { siteConfig } from "@/config/site";
@@ -40,9 +38,7 @@ export default function SubsidiariesPage() {
     <main role="main" className="flex-1">
       <PageJsonLd data={subsidiariesJsonLd} />
       <HeroSection />
-      <ActiveSubsidiariesSection />
-      <PipelineSection />
-      <CTASection />
+      <SubsidiariesEditorialSections />
     </main>
   );
 }

@@ -1,70 +1,49 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { ACTIVE_SUBSIDIARIES } from "@/config/brand";
+import { MotionReveal } from "@/components/motion/motion-reveal";
 
-import { motion } from "framer-motion";
-import SubsidiaryCard from "./subsidiaries/subsidiary-card";
-import { ADESA_MEDIA, ADESA_ENERGY, ADESA_SOLUTIONS, ADESA_DISTRIBUTION } from "@/config/brand";
-
-const subsidiariesData = [
-  { ...ADESA_MEDIA, featured: true },
-  { ...ADESA_ENERGY },
-  { ...ADESA_SOLUTIONS },
-  { ...ADESA_DISTRIBUTION, external: true },
-];
+const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
 
 export default function SubsidiariesSection() {
   return (
-    <section
-      className="relative py-24 sm:py-32 bg-adesa-900 overflow-hidden border-t border-white/5"
-      aria-labelledby="subsidiaries-section-title"
-    >
-      {/* Atmosphere */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[900px] h-[700px] sm:h-[900px] bg-adesa-800 rounded-full blur-[180px] opacity-40" />
-        <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-gold-500 rounded-full blur-[180px] opacity-10" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
-        <header className="max-w-3xl mb-16 sm:mb-20">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-gold-400 font-semibold mb-4">
-            Group Portfolio Companies
-          </p>
-
-          <h2
-            id="subsidiaries-section-title"
-            className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight"
-          >
-            Operating <span className="adesa-gold-gradient-text font-serif">Subsidiaries</span>
+    <section className="section-rule bg-adesa-900 text-adesa-100" aria-labelledby="subsidiaries-title">
+      <div className="site-container section-space">
+        <MotionReveal>
+          <h2 id="subsidiaries-title" className="max-w-[13ch] text-4xl font-medium leading-[1.05] tracking-[-0.04em] text-adesa-50 sm:text-5xl">
+            Distinct companies. Shared standards.
           </h2>
-
-          <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-adesa-300 leading-relaxed">
-            Each operating company functions with decisive autonomy in its sector while
-            drawing on shared institutional governance, capital strength, and strategic clarity.
+          <p className="mt-5 max-w-[56ch] text-base leading-7 text-adesa-300">
+            Each company owns a clear operating mandate while benefiting from group-level governance, capability, and strategic direction.
           </p>
-        </header>
+        </MotionReveal>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
-          {subsidiariesData.map((item, idx) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-            >
-              <SubsidiaryCard
-                name={item.name}
-                description={item.description}
-                services={item.services}
-                href={item.href}
-                image={item.image}
-                badge={item.badge}
-                sector={item.sector}
-                featured={item.featured}
-                external={item.external}
-              />
-            </motion.div>
+        <div className="mt-12 grid gap-4 lg:grid-cols-12">
+          {ACTIVE_SUBSIDIARIES.map((subsidiary, index) => (
+            <MotionReveal key={subsidiary.name} className={spans[index]} delay={index * 0.05}>
+              <article className="group flex h-full min-h-[22rem] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-adesa-850 p-6 sm:p-8">
+                <div className="flex items-start justify-between gap-6">
+                  <div className="relative h-16 w-20 overflow-hidden rounded-xl bg-white p-2">
+                    <Image src={subsidiary.image} alt={`${subsidiary.name} logo`} fill sizes="80px" className="object-contain p-2" />
+                  </div>
+                  <span className="font-sans text-sm text-adesa-400">{subsidiary.sector}</span>
+                </div>
+                <div className="mt-16">
+                  <h3 className="text-3xl font-medium text-adesa-50 sm:text-4xl">{subsidiary.name}</h3>
+                  <p className="mt-4 max-w-[55ch] text-sm leading-6 text-adesa-300 sm:text-base">{subsidiary.description}</p>
+                  <Link
+                    href={subsidiary.href}
+                    target={subsidiary.href.startsWith("http") ? "_blank" : undefined}
+                    rel={subsidiary.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-300 transition-colors duration-200 hover:text-gold-200"
+                  >
+                    Visit {subsidiary.name}
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            </MotionReveal>
           ))}
         </div>
       </div>

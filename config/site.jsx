@@ -46,4 +46,11 @@ export const siteConfig = {
     google: "", // add Google Search Console verification code here
     yandex: "",
   },
+  award: {
+    title: "Best Multi-Sector Business Group 2026",
+    programme: "African Excellence Awards 2026",
+    issuer: "MEA Markets",
+    year: 2026,
+    url: "https://meamarkets.digital/winners/adesa-hq/",
+  },
 };

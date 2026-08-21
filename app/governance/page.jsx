@@ -1,10 +1,6 @@
 import { constructMetadata, buildWebPageJsonLd } from "@/lib/seo";
 import HeroSection from "@/components/sections/governance/hero-section";
-import CoreStandardsSection from "@/components/sections/governance/core-standards-section";
-import PerformanceOversightSection from "@/components/sections/governance/performance-oversight-section";
-import CapitalDisciplineSection from "@/components/sections/governance/capital-discipline-section";
-import InstitutionalSystemsSection from "@/components/sections/governance/institutional-systems-section";
-import FinalStatementSection from "@/components/sections/governance/final-statement-section";
+import GovernanceEditorialSections from "@/components/sections/governance/editorial-sections";
 import PageJsonLd from "@/components/seo/page-json-ld";
 
 export const metadata = constructMetadata({
@@ -26,11 +22,7 @@ export default function GovernancePage() {
     <main role="main" className="flex-1">
       <PageJsonLd data={governanceJsonLd} />
       <HeroSection />
-      <CoreStandardsSection />
-      <PerformanceOversightSection />
-      <CapitalDisciplineSection />
-      <InstitutionalSystemsSection />
-      <FinalStatementSection />
+      <GovernanceEditorialSections />
     </main>
   );
 }

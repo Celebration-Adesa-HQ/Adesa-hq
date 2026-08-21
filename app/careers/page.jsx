@@ -1,6 +1,5 @@
 import HeroSection from "@/components/sections/career/hero-section";
-import JobListings from "@/components/sections/career/job-listings";
-import ContactSection from "@/components/sections/career/contact-section";
+import CareerEditorialSections from "@/components/sections/career/editorial-sections";
 import { constructMetadata } from "@/lib/seo";
 import PageJsonLd from "@/components/seo/page-json-ld";
 import { siteConfig } from "@/config/site";
@@ -8,7 +7,7 @@ import { siteConfig } from "@/config/site";
 export const metadata = constructMetadata({
   title: "Careers | Join ADESA HQ and Our Operating Companies",
   description:
-    "Join ADESA HQ and help shape the future of African businesses. Explore open positions and grow with a multi-sector builder-operator group.",
+    "Learn how ADESA HQ approaches operating culture, responsibility, and long-term institution building across its group.",
   path: "/careers", // canonical URL for the careers page
   keywords: ["careers", "jobs in Africa", "ADESA HQ careers"],
 });
@@ -19,7 +18,7 @@ const careersJsonLd = {
   name: "Careers at ADESA HQ",
   url: `${siteConfig.url}/careers`,
   description:
-    "Join ADESA HQ and help shape the future of African businesses. Explore open positions and grow with a multi-sector builder-operator group.",
+    "Learn how ADESA HQ approaches operating culture, responsibility, and long-term institution building across its group.",
   isPartOf: {
     "@id": `${siteConfig.url}#website`,
   },
@@ -33,8 +32,7 @@ export default function CareerPage() {
     <main role="main" className="flex-1">
       <PageJsonLd data={careersJsonLd} />
       <HeroSection />
-      <JobListings />
-      <ContactSection />
+      <CareerEditorialSections />
     </main>
   );
 }

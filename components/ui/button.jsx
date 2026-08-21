@@ -12,9 +12,10 @@ export function Button({
   onClick,
   external = false,
   type = "button",
+  disabled = false,
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-adesa-950 active:scale-[0.98]";
+    "inline-flex items-center justify-center rounded-full border border-transparent font-medium transition-[background-color,border-color,color,transform,box-shadow] duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-adesa-950 active:scale-[0.98]";
 
   const variants = {
     primary:
@@ -71,6 +72,8 @@ export function Button({
       type={type}
       onClick={onClick}
       className={classes}
+      disabled={disabled}
+      aria-disabled={disabled}
       aria-label={typeof children === "string" ? children : undefined}
     >
       {children}

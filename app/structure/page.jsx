@@ -1,7 +1,4 @@
-import MasterBrandSection from "@/components/sections/structure/master-brand-section";
-import CorporateHierarchySection from "@/components/sections/structure/corporate-hierarchy-section";
-import OperatingModelSection from "@/components/sections/structure/operating-model-section";
-import CTASection from "@/components/sections/structure/cta-section";
+import StructureEditorialSections from "@/components/sections/structure/editorial-sections";
 import HeroSection from "@/components/sections/structure/hero-section";
 import { constructMetadata, buildWebPageJsonLd } from "@/lib/seo";
 import PageJsonLd from "@/components/seo/page-json-ld";
@@ -27,17 +24,7 @@ export default function GroupStructurePage() {
       {/* Hero - Server Component */}
       <HeroSection />
 
-      {/* Master Brand Explanation - Client Component */}
-      <MasterBrandSection />
-
-      {/* Corporate Hierarchy - Client Component */}
-      <CorporateHierarchySection />
-
-      {/* Operating Model - Client Component */}
-      <OperatingModelSection />
-
-      {/* CTA - Client Component */}
-      <CTASection />
+      <StructureEditorialSections />
     </main>
   );
 }

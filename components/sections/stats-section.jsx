@@ -1,75 +1,31 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Section } from "../ui/section";
+import { MotionReveal } from "@/components/motion/motion-reveal";
 
 const stats = [
-  { value: "4", label: "Core Sectors", description: "Operating enterprises scaling in critical economic verticals." },
-  {
-    value: "100%",
-    label: "Governance Standard",
-    description: "Rigorous reporting and board oversight across all subsidiaries.",
-  },
-  { value: "Pan-Africa", label: "Geographic Scope", description: "Rooted in African market realities with global execution standards." },
-  { value: "Decades", label: "Investment Horizon", description: "Capital allocation driven by long-term compounding, not rapid exits." },
+  { value: "4", label: "Operating sectors", note: "A focused, multi-sector portfolio." },
+  { value: "1", label: "Group standard", note: "Shared governance and reporting discipline." },
+  { value: "100%", label: "African focus", note: "Built around regional context and opportunity." },
+  { value: "Long", label: "Time horizon", note: "Decisions measured beyond the next cycle." },
 ];
 
 export default function StatsSection() {
   return (
-    <Section
-      className="relative bg-adesa-950 text-adesa-50 overflow-hidden py-24 sm:py-32 border-t border-white/5"
-      role="region"
-      aria-label="Company statistics"
-    >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-adesa-800 rounded-full blur-[180px] opacity-35" />
-        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-gold-500 rounded-full blur-[180px] opacity-10" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-16 max-w-3xl">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.28em] text-gold-400 font-semibold">
-            Institutional Discipline
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white">
-            Scale matters, but <span className="adesa-gold-gradient-text font-serif">discipline</span> matters more.
+    <section className="section-rule bg-adesa-900 text-adesa-100" aria-labelledby="stats-title">
+      <div className="site-container section-space">
+        <MotionReveal>
+          <h2 id="stats-title" className="max-w-[14ch] text-3xl font-medium tracking-[-0.035em] text-adesa-50 sm:text-4xl">
+            Scope matters. Discipline matters more.
           </h2>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        </MotionReveal>
+        <dl className="mt-12 grid grid-cols-1 border-t border-white/12 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
-            <motion.section
-              key={stat.label}
-              aria-labelledby={`stat-${index}-label`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative p-8 rounded-[28px] bg-gradient-to-b from-white/6 to-white/2 border border-white/8 hover:border-gold-400/40 hover:bg-white/7 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div className="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-gold-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-              <div>
-                <p
-                  className="text-4xl sm:text-5xl font-bold font-serif tracking-tight text-gold-400 group-hover:text-gold-300 transition-colors"
-                  aria-label={`${stat.value} ${stat.label}`}
-                >
-                  {stat.value}
-                </p>
-                <h3
-                  id={`stat-${index}-label`}
-                  className="mt-4 text-base font-semibold text-white group-hover:text-gold-300 transition-colors"
-                >
-                  {stat.label}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-adesa-300 leading-relaxed">
-                  {stat.description}
-                </p>
-              </div>
-            </motion.section>
+            <MotionReveal key={stat.label} as="div" delay={index * 0.05} className="border-b border-white/12 py-8 sm:px-6 sm:first:pl-0 lg:border-r lg:last:border-r-0">
+              <dt className="text-sm font-semibold text-adesa-300">{stat.label}</dt>
+              <dd className="mt-4 font-serif text-5xl font-medium tracking-[-0.05em] text-gold-300 sm:text-6xl">{stat.value}</dd>
+              <p className="mt-4 max-w-[26ch] text-sm leading-6 text-adesa-400">{stat.note}</p>
+            </MotionReveal>
           ))}
-        </div>
+        </dl>
       </div>
-    </Section>
+    </section>
   );
 }

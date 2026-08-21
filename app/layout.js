@@ -8,6 +8,7 @@ import AppShell from "./AppShell";
 import { StructuredData } from "@/components/seo/structured-data";
 import { siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
+import { FirstVisitIntro } from "@/components/brand/first-visit-intro";
 
 const inter = localFont({
   src: [
@@ -93,20 +94,22 @@ export default function RootLayout({ children }) {
     <html lang={siteConfig.locale.replace("_", "-")} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-adesa-950 font-sans text-adesa-100 antialiased",
+          "min-h-[100dvh] bg-adesa-950 font-sans text-adesa-100 antialiased",
           inter.variable,
           playfair.variable,
         )}
       >
+        <a href="#main-content" className="fixed left-4 top-4 z-[var(--layer-modal)] -translate-y-24 rounded-full bg-gold-400 px-5 py-3 text-sm font-semibold text-adesa-950 transition-transform focus:translate-y-0">Skip to content</a>
+        <FirstVisitIntro />
         <StructuredData />
         <AppShell>
-          <div className="relative flex min-h-screen flex-col">
+          <div className="relative flex min-h-[100dvh] flex-col">
             <Header />
-            {children}
+            <div id="main-content" className="contents">{children}</div>
             <Footer />
           </div>
         </AppShell>
-        <Analytics />
+        {process.env.VERCEL ? <Analytics /> : null}
       </body>
     </html>
   );

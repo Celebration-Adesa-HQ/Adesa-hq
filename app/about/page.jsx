@@ -1,10 +1,6 @@
 import { constructMetadata } from "@/lib/seo";
 import HeroSection from "@/components/sections/about/hero-section";
-import NarrativeSection from "@/components/sections/about/narrative-section";
-import ValuesSection from "@/components/sections/about/values-section";
-import TimelineSection from "@/components/sections/about/timeline-section";
-import CTASsection from "@/components/sections/about/cta-section";
-import PhilosophyPillarsSection from "@/components/sections/about/philosophy-pillars-section";
+import AboutEditorialSections from "@/components/sections/about/editorial-sections";
 import PageJsonLd from "@/components/seo/page-json-ld";
 import { siteConfig } from "@/config/site";
 
@@ -36,11 +32,7 @@ export default function AboutPage() {
     <main role="main" className="flex-1">
       <PageJsonLd data={aboutJsonLd} />
       <HeroSection />
-      <NarrativeSection />
-      <PhilosophyPillarsSection />
-      <ValuesSection />
-      <TimelineSection />
-      <CTASsection />
+      <AboutEditorialSections />
     </main>
   );
 }

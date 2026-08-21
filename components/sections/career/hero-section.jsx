@@ -1,54 +1,28 @@
-"use client";
-import GridLine from "@/components/ui/gridLine";
-import { motion } from "framer-motion";
+import { MotionReveal } from "@/components/motion/motion-reveal";
+import { PageHero } from "@/components/ui/page-hero";
 
-export default function HeroSection() {
+export default function CareerHeroSection() {
   return (
-    <section
-      className="relative overflow-hidden bg-adesa-950 pt-32 pb-20 text-adesa-50 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32"
-      aria-labelledby="hero-heading"
+    <PageHero
+      labelledBy="careers-hero-title"
+      backgroundImage="/legacy-in-motion-story.webp"
+      backgroundPosition="object-[72%_76%]"
+      imageClassName="opacity-45 saturate-[0.7]"
+      treatment="left"
     >
-      {/* Floating background orbs */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-24 -left-24 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-gold-300/20 blur-[80px] sm:blur-[120px] animate-[float_18s_ease-in-out_infinite]" />
-        <div className="absolute -bottom-32 -right-32 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-adesa-500/20 blur-[120px] sm:blur-[150px] animate-[float2_25s_ease-in-out_infinite]" />
-        <div className="absolute top-1/2 left-1/3 w-[180px] sm:w-[300px] h-[180px] sm:h-[300px] rounded-full bg-adesa-400/10 blur-[70px] sm:blur-[100px] animate-[float3_30s_ease-in-out_infinite]" />
+      <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
+        <MotionReveal direction="right">
+          <p className="mb-5 text-sm font-semibold text-gold-300">Careers</p>
+          <h1 id="careers-hero-title" className="max-w-[14ch] text-5xl font-medium leading-[1.02] tracking-[-0.045em] text-adesa-50 sm:text-6xl lg:text-7xl">
+            Build work that can carry responsibility.
+          </h1>
+        </MotionReveal>
+        <MotionReveal className="border-t border-white/12 pt-6" direction="left" delay={0.08}>
+          <p className="max-w-[44ch] text-base leading-7 text-adesa-200 sm:text-lg">
+            We value clear thinking, reliable execution, and people willing to strengthen systems as the group grows.
+          </p>
+        </MotionReveal>
       </div>
-
-      <GridLine show />
-
-      <motion.div
-        className="relative z-10 mx-auto max-w-[90%] px-4 text-center sm:max-w-3xl sm:px-6"
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-gold-300">
-          Careers
-        </p>
-        <h1 className="text-3xl font-medium leading-[1.04] tracking-[-0.04em] sm:text-5xl lg:text-7xl">
-          Build with a group that values structure, responsibility, and long-term work.
-        </h1>
-        <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-adesa-200 leading-relaxed">
-          Explore current openings and future opportunities across ADESA HQ and
-          the operating companies within the portfolio.
-        </p>
-        <div className="mt-6 sm:mt-10">
-          <a
-            href="#open-positions"
-            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gold-500 hover:bg-gold-400 text-adesa-900 rounded-full text-base sm:text-lg font-medium shadow-[0_0_20px_rgba(184,134,11,0.35)] sm:shadow-[0_0_40px_rgba(184,134,11,0.35)] transition-all"
-          >
-            Explore Careers
-          </a>
-        </div>
-      </motion.div>
-
-      {/* Animated underline glow */}
-      <motion.div
-        className="absolute bottom-2 sm:bottom-0 left-1/2 w-32 sm:w-40 h-1 bg-gold-500/40 rounded-full -translate-x-1/2 animate-pulse"
-        animate={{ scaleX: [1, 1.5, 1] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      />
-    </section>
+    </PageHero>
   );
 }
