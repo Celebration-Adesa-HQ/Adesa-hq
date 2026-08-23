@@ -2,19 +2,16 @@ import { constructMetadata, buildWebPageJsonLd } from "@/lib/seo";
 import TermsContentSection from "@/components/sections/legal/terms-content-section";
 import HeroSectionTerms from "@/components/sections/legal/hero-section-terms";
 import PageJsonLd from "@/components/seo/page-json-ld";
+import { SEO_PAGES } from "@/config/seo";
 
-export const metadata = constructMetadata({
-  title: "Terms of Service | ADESA HQ",
-  description:
-    "ADESA HQ's terms of service outline the agreement for using our website and services, including intellectual property rights, limitations, and governing law.",
-  path: "/terms", // ensures canonical URL is correct
-  keywords: ["terms of service", "user agreement", "ADESA HQ terms"],
-});
+const pageSeo = SEO_PAGES["/terms"];
+
+export const metadata = constructMetadata(pageSeo);
 
 const termsJsonLd = buildWebPageJsonLd({
-  title: "Terms of Service | ADESA HQ",
-  description: "ADESA HQ's terms of service outline the agreement for using our website and services, including intellectual property rights, limitations, and governing law.",
-  path: "/terms"
+  ...pageSeo,
+  name: pageSeo.schemaName,
+  type: pageSeo.schemaType,
 });
 
 export default function TermsPage() {

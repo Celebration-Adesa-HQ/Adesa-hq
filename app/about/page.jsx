@@ -1,31 +1,18 @@
-import { constructMetadata } from "@/lib/seo";
+import { buildWebPageJsonLd, constructMetadata } from "@/lib/seo";
 import HeroSection from "@/components/sections/about/hero-section";
 import AboutEditorialSections from "@/components/sections/about/editorial-sections";
 import PageJsonLd from "@/components/seo/page-json-ld";
-import { siteConfig } from "@/config/site";
+import { SEO_PAGES } from "@/config/seo";
 
-export const metadata = constructMetadata({
-  title: "About ADESA HQ | Builder-Operator Philosophy in Africa",
-  description:
-    "Learn about ADESA HQ's builder-operator philosophy, governance framework, and long-term institutional value creation strategy across Africa.",
-  path: "/about", // ensures canonical URL points to About page
-  keywords: ["about ADESA HQ", "builder-operator philosophy", "governance framework"],
+const pageSeo = SEO_PAGES["/about"];
+
+export const metadata = constructMetadata(pageSeo);
+
+const aboutJsonLd = buildWebPageJsonLd({
+  ...pageSeo,
+  name: pageSeo.schemaName,
+  type: pageSeo.schemaType,
 });
-
-const aboutJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  name: "About ADESA HQ",
-  url: `${siteConfig.url}/about`,
-  description:
-    "Learn about ADESA HQ's builder-operator philosophy, governance framework, and long-term institutional value creation strategy across Africa.",
-  isPartOf: {
-    "@id": `${siteConfig.url}#website`,
-  },
-  about: {
-    "@id": `${siteConfig.url}#organization`,
-  },
-};
 
 export default function AboutPage() {
   return (

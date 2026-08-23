@@ -6,12 +6,35 @@ export default function manifest(): MetadataRoute.Manifest {
     name: siteConfig.name,
     short_name: siteConfig.shortName,
     description: siteConfig.description,
+    id: "/",
     start_url: "/",
     scope: "/",
     display: "standalone",
     background_color: siteConfig.themeColor,
     theme_color: siteConfig.themeColor,
-    lang: "en",
+    lang: "en-NG",
+    dir: "ltr",
+    categories: ["business", "corporate"],
+    shortcuts: [
+      {
+        name: "About Adesa HQ",
+        short_name: "About",
+        description: "Learn about the ADESA builder-operator philosophy.",
+        url: "/about",
+      },
+      {
+        name: "Operating companies",
+        short_name: "Companies",
+        description: "Explore ADESA operating companies.",
+        url: "/subsidiaries",
+      },
+      {
+        name: "Contact Adesa HQ",
+        short_name: "Contact",
+        description: "Contact ADESA HQ.",
+        url: "/contact",
+      },
+    ],
     icons: [
       {
         src: "/favicon.ico",

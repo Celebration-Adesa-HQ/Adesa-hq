@@ -4,16 +4,17 @@ import { constructMetadata, buildContactPageJsonLd } from "@/lib/seo";
 import LeftPanel from "@/components/sections/contact/LeftPanel";
 import HeroSection from "@/components/sections/contact/hero-section";
 import PageJsonLd from "@/components/seo/page-json-ld";
+import { SEO_PAGES } from "@/config/seo";
 
-export const metadata = constructMetadata({
-  title: "Contact ADESA HQ | Partnership, Media & General Inquiries",
-  description:
-    "Get in touch with ADESA HQ for partnership opportunities, media inquiries, investor questions, or general questions about our builder-operator approach to African enterprise.",
-  path: "/contact", // canonical URL for contact page
-  keywords: ["contact ADESA HQ", "partnership inquiries", "media inquiries"],
+const pageSeo = SEO_PAGES["/contact"];
+
+export const metadata = constructMetadata(pageSeo);
+
+const contactJsonLd = buildContactPageJsonLd({
+  ...pageSeo,
+  name: pageSeo.schemaName,
+  type: pageSeo.schemaType,
 });
-
-const contactJsonLd = buildContactPageJsonLd();
 
 export default function ContactPage() {
   return (

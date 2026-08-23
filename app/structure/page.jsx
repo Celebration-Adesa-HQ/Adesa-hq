@@ -2,19 +2,16 @@ import StructureEditorialSections from "@/components/sections/structure/editoria
 import HeroSection from "@/components/sections/structure/hero-section";
 import { constructMetadata, buildWebPageJsonLd } from "@/lib/seo";
 import PageJsonLd from "@/components/seo/page-json-ld";
+import { SEO_PAGES } from "@/config/seo";
 
-export const metadata = constructMetadata({
-  title: "Group Structure | ADESA HQ Governance & Operating Model",
-  description:
-    "Explore ADESA HQ's master brand architecture, corporate hierarchy, and operating model designed for governance, capital discipline, and growth across Africa.",
-  path: "/structure", // ensures canonical URL is correct
-  keywords: ["group structure", "corporate hierarchy", "operating model"],
-});
+const pageSeo = SEO_PAGES["/structure"];
+
+export const metadata = constructMetadata(pageSeo);
 
 const structureJsonLd = buildWebPageJsonLd({
-  title: "Group Structure | ADESA HQ Governance & Operating Model",
-  description: "Explore ADESA HQ's master brand architecture, corporate hierarchy, and operating model designed for governance, capital discipline, and growth across Africa.",
-  path: "/structure"
+  ...pageSeo,
+  name: pageSeo.schemaName,
+  type: pageSeo.schemaType,
 });
 
 export default function GroupStructurePage() {

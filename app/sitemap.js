@@ -1,19 +1,10 @@
 import { siteConfig } from "@/config/site";
-
-const INDEXABLE_ROUTES = [
-  "/",
-  "/about",
-  "/structure",
-  "/governance",
-  "/subsidiaries",
-  "/careers",
-  "/contact",
-  "/privacy",
-  "/terms",
-];
+import { INDEXABLE_ROUTES } from "@/config/seo";
 
 export default function sitemap() {
-  return INDEXABLE_ROUTES.map((path) => ({
+  return INDEXABLE_ROUTES.map(({ path, changeFrequency, priority }) => ({
     url: path === "/" ? siteConfig.url : new URL(path, siteConfig.url).toString(),
+    changeFrequency,
+    priority,
   }));
 }

@@ -7,26 +7,25 @@ import PhilosophySection from "@/components/sections/philosophy-section";
 import BrochureShowcaseSection from "@/components/sections/brochure-showcase-section";
 import SubsidiariesSection from "@/components/sections/subsidiaries-section";
 import FinalCTASection from "@/components/sections/final-cta-section";
-import { constructMetadata } from "@/lib/seo";
+import { buildWebPageJsonLd, constructMetadata } from "@/lib/seo";
 import SubscribeCard from "@/components/sections/SubscribeCard";
+import PageJsonLd from "@/components/seo/page-json-ld";
+import { SEO_PAGES } from "@/config/seo";
 
-export const metadata = constructMetadata({
-  title: "ADESA HQ | Builder-Operator Group in Africa",
-  description:
-    "ADESA HQ is a governance-led holding group that builds and strengthens enduring African businesses across strategic sectors.",
-  path: "/",
-  keywords: [
-    "builder-operator group Africa",
-    "African holding company",
-    "ADESA HQ",
-    "Legacy in Motion",
-    "corporate governance Africa",
-  ],
+const pageSeo = SEO_PAGES["/"];
+
+export const metadata = constructMetadata(pageSeo);
+
+const pageJsonLd = buildWebPageJsonLd({
+  ...pageSeo,
+  name: pageSeo.schemaName,
+  type: pageSeo.schemaType,
 });
 
 export default function Home() {
   return (
     <main role="main" className="flex-1">
+      <PageJsonLd data={pageJsonLd} />
       <HeroSection />
       <AwardProofSection />
       <BrochureShowcaseSection />

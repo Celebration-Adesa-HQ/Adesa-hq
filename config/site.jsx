@@ -43,7 +43,11 @@ export const siteConfig = {
     url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
   },
   verification: {
-    google: "", // add Google Search Console verification code here
+    google: "",
+    bing: "",
+    pinterest: "",
+    facebook: "",
+    yahoo: "",
     yandex: "",
   },
   award: {
