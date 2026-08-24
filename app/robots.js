@@ -3,7 +3,11 @@ import { siteConfig } from "@/config/site";
 export default function robots() {
   return {
     rules: [
-      { userAgent: "*", allow: "/" },
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/cgi-bin/", "/api/", "/_next/data/"],
+      },
       { userAgent: "Googlebot", allow: "/" },
       { userAgent: "Bingbot", allow: "/" },
       { userAgent: "Applebot", allow: "/" },
